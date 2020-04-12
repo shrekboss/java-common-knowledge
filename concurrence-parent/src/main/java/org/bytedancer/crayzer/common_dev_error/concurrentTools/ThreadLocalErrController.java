@@ -1,4 +1,4 @@
-package org.crayzer.common.dev.err.concurrentTools;
+package org.bytedancer.crayzer.common.dev.err.concurrentTools;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

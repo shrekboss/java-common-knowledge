@@ -1,4 +1,4 @@
-package org.crayzer.common.dev.err.threadsafe.lock;
+package org.bytedancer.crayzer.common.dev.err.threadsafe.lock;
 
 
 public class WrongData {

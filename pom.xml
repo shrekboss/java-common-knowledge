@@ -17,6 +17,7 @@
 
     <modules>
         <module>concurrence-parent</module>
+        <module>design-parent</module>
     </modules>
 
     <properties>
