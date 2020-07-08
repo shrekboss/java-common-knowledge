@@ -1,9 +1,4 @@
-package org.bytedancer.crayzer.design_mode_thingking.bird;
-
-import org.bytedancer.crayzer.design_mode_thingking.inaction.bird.EggLayAbility;
-import org.bytedancer.crayzer.design_mode_thingking.inaction.bird.EggLayable;
-import org.bytedancer.crayzer.design_mode_thingking.inaction.bird.TweetAbility;
-import org.bytedancer.crayzer.design_mode_thingking.inaction.bird.Tweetable;
+package org.bytedancer.crayzer.design_mode_thingking.inaction.bird;
 
 public class Ostrich implements Tweetable, EggLayable { // 鸵鸟
     //组合

@@ -1,7 +1,10 @@
 package org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.service;
 
+import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.Status;
 import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.domain.VirtualWallet;
 import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.entity.VirtualWalletEntity;
+import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.entity.VirtualWalletTransactionEntity;
+import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.exception.InsufficientBalanceException;
 import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.repository.VirtualWalletRepository;
 import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.repository.VirtualWalletTransactionRepository;
 
@@ -37,7 +40,25 @@ public class VirtualWalletService {
     }
 
     public void transfer(Long fromWalletId, Long toWalletId, BigDecimal amount) {
-        //...跟基于贫血模型的传统开发模式的代码一样...
+        VirtualWalletTransactionEntity transactionEntity = new VirtualWalletTransactionEntity();
+        transactionEntity.setAmount(amount);
+        transactionEntity.setCreateTime(System.currentTimeMillis());
+        transactionEntity.setFromWalletId(fromWalletId);
+        transactionEntity.setToWalletId(toWalletId);
+        transactionEntity.setStatus(Status.TO_BE_EXECUTED);
+        Long transactionId = transactionRepo.saveTransaction(transactionEntity);
+        try {
+            debit(fromWalletId, amount);
+            credit(toWalletId, amount);
+        } catch (InsufficientBalanceException e) {
+            transactionRepo.updateStatus(transactionId, Status.CLOSED);
+            //...rethrow exception e...
+        } catch (IllegalArgumentException e) {
+            transactionRepo.updateStatus(transactionId, Status.FAILED);
+        } catch (RuntimeException e1) {
+            //...rethrow exception e...
+            transactionRepo.updateStatus(transactionId, Status.EXECUTED);
+        }
     }
 
     private VirtualWallet convert(VirtualWalletEntity walletEntity) {

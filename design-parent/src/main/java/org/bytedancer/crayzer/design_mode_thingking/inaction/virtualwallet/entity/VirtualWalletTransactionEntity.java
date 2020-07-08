@@ -1,5 +1,7 @@
 package org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.entity;
 
+import org.bytedancer.crayzer.design_mode_thingking.inaction.virtualwallet.Status;
+
 import java.math.BigDecimal;
 
 public class VirtualWalletTransactionEntity {
@@ -13,5 +15,9 @@ public class VirtualWalletTransactionEntity {
     }
 
     public void setToWalletId(Long toWalletId) {
+    }
+
+    public void setStatus(Status toBeExecuted) {
+
     }
 }
