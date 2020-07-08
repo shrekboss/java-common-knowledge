@@ -11,20 +11,6 @@ public class ApplicationContext {
     private Notification notification;
     private Alert alert;
 
-    public void initializeBeans() {
-        //省略一些初始化代码
-        alertRule = new AlertRule();
-        //省略一些初始化代码
-        notification = new Notification();
-        alert = new Alert();
-        alert.addAlertHandler(new TpsAlertHandler(alertRule, notification));
-        alert.addAlertHandler(new ErrorAlertHandler(alertRule, notification));
-    }
-
-    public Alert getAlert() {
-        return alert;
-    }
-
     /**
      * 饿汉式单例
      */
@@ -34,7 +20,22 @@ public class ApplicationContext {
         INSTANCE.initializeBeans();
     }
 
-    public static ApplicationContext getInstance() {
+    public void initializeBeans() {
+        //省略一些初始化代码
+        alertRule = new AlertRule();
+        //省略一些初始化代码
+        notification = new Notification();
+        alert = new Alert();
+        // alert.addAlertHandler(new TimeoutAlertHandler(alertRule, notification));
+        alert.addAlertHandler(new TpsAlertHandler(alertRule, notification));
+        alert.addAlertHandler(new ErrorAlertHandler(alertRule, notification));
+    }
+
+    public Alert getAlert() {
+        return alert;
+    }
+
+    public static ApplicationContext getSingletonInstance() {
         return INSTANCE;
     }
 }

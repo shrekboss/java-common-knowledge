@@ -13,7 +13,7 @@ public class TimeoutAlertHandler extends AlertHandler {
 
     @Override
     public void check(ApiStatInfo apiStatInfo) {
-        if (apiStatInfo.getErrorCount() > rule.getMatchedRule(apiStatInfo.getApi()).getMaxTimeoutCount()) {
+        if (apiStatInfo.getTimeoutCount() > rule.getMatchedRule(apiStatInfo.getApi()).getMaxTimeoutCount()) {
             notification.notify(NotificationEmergencyLevel.URGENCY, "...");
         }
     }

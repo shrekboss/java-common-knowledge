@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Alert {
+    public Alert() {
+
+    }
     private List<AlertHandler> alertHandlers = new ArrayList<>();
 
     public void addAlertHandler(AlertHandler alertHandler) {

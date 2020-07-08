@@ -3,7 +3,7 @@ package org.bytedancer.crayzer.design_mode_principle.ocp.extension.vo;
 import lombok.Data;
 
 @Data
-public class ApiStatInfo {//省略constructor/getter/setter方法
+public class ApiStatInfo {
     private String api;
     private long requestCount;
     private long errorCount;

@@ -6,7 +6,7 @@ public class Bootstrap {
     public static void main(String[] args) {
         ApiStatInfo apiStatInfo = new ApiStatInfo();
         // ...省略设置apiStatInfo数据值的代码
-        apiStatInfo.setTimeoutCount(100);
-        ApplicationContext.getInstance().getAlert().check(apiStatInfo);
+        apiStatInfo.setErrorCount(200);
+        ApplicationContext.getSingletonInstance().getAlert().check(apiStatInfo);
     }
 }

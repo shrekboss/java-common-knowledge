@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common.dev.err.concurrentTools;
+package org.bytedancer.crayzer.common_dev_error.concurrentTools;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
