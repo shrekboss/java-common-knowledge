@@ -29,27 +29,24 @@ public class Metrics {
     }
 
     public void startRepeatedReport(long period, TimeUnit unit){
-        executor.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
-                Gson gson = new Gson();
-                Map<String, Map<String, Double>> stats = new HashMap<>();
-                for (Map.Entry<String, List<Double>> entry : responseTimes.entrySet()) {
-                    String apiName = entry.getKey();
-                    List<Double> apiRespTimes = entry.getValue();
-                    stats.putIfAbsent(apiName, new HashMap<>());
-                    stats.get(apiName).put("max", max(apiRespTimes));
-                    stats.get(apiName).put("avg", avg(apiRespTimes));
-                }
-
-                for (Map.Entry<String, List<Double>> entry : timestamps.entrySet()) {
-                    String apiName = entry.getKey();
-                    List<Double> apiTimestamps = entry.getValue();
-                    stats.putIfAbsent(apiName, new HashMap<>());
-                    stats.get(apiName).put("count", (double)apiTimestamps.size());
-                }
-                System.out.println(gson.toJson(stats));
+        executor.scheduleAtFixedRate(() -> {
+            Gson gson = new Gson();
+            Map<String, Map<String, Double>> stats = new HashMap<>();
+            for (Map.Entry<String, List<Double>> entry : responseTimes.entrySet()) {
+                String apiName = entry.getKey();
+                List<Double> apiRespTimes = entry.getValue();
+                stats.putIfAbsent(apiName, new HashMap<>());
+                stats.get(apiName).put("max", max(apiRespTimes));
+                stats.get(apiName).put("avg", avg(apiRespTimes));
             }
+
+            for (Map.Entry<String, List<Double>> entry : timestamps.entrySet()) {
+                String apiName = entry.getKey();
+                List<Double> apiTimestamps = entry.getValue();
+                stats.putIfAbsent(apiName, new HashMap<>());
+                stats.get(apiName).put("count", (double)apiTimestamps.size());
+            }
+            System.out.println(gson.toJson(stats));
         }, 0, period, unit);
     }
 
