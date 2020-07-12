@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.v1;
+package org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter;
 
 import lombok.Data;
 
@@ -10,5 +10,5 @@ public class RequestStat {
     private double p999ResponseTime;
     private double p99ResponseTime;
     private long count;
-    private long tps;
+    private double tps;
 }

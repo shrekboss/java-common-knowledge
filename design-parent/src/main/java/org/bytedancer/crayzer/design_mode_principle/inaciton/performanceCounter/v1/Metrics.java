@@ -28,7 +28,7 @@ public class Metrics {
         timestamps.get(apiName).add(timestamp);
     }
 
-    public void startRepeatedReport(long period, TimeUnit unit){
+    public void startRepeatedReport(long period, TimeUnit unit) {
         executor.scheduleAtFixedRate(() -> {
             Gson gson = new Gson();
             Map<String, Map<String, Double>> stats = new HashMap<>();
@@ -44,7 +44,7 @@ public class Metrics {
                 String apiName = entry.getKey();
                 List<Double> apiTimestamps = entry.getValue();
                 stats.putIfAbsent(apiName, new HashMap<>());
-                stats.get(apiName).put("count", (double)apiTimestamps.size());
+                stats.get(apiName).put("count", (double) apiTimestamps.size());
             }
             System.out.println(gson.toJson(stats));
         }, 0, period, unit);
@@ -54,6 +54,7 @@ public class Metrics {
         //省略代码实现
         return 0.0;
     }
+
     private double avg(List<Double> dataset) {
         //省略代码实现
         return 0.0;

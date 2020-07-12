@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.v1;
+package org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.v2;
 
 
 import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.MetricsCollector;
@@ -6,16 +6,23 @@ import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.
 import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.RedisMetricsStorage;
 import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.RequestInfo;
 
-public class Demo {
+public class PerfCounterTest {
     public static void main(String[] args) {
         MetricsStorage storage = new RedisMetricsStorage();
-        ConsoleReporter consoleReporter = new ConsoleReporter(storage);
+        Aggregator aggregator = new Aggregator();
+
+        // 定时触发统计并将结果显示到终端
+        ConsoleViewer consoleViewer = new ConsoleViewer();
+        ConsoleReporter consoleReporter = new ConsoleReporter(storage, aggregator, consoleViewer);
         consoleReporter.startRepeatedReport(60, 60);
 
-        EmailReporter emailReporter = new EmailReporter(storage);
-        emailReporter.addToAddress("wangzheng@xzg.com");
+        // 定时触发统计并将结果输出到邮件
+        EmailViewer emailViewer = new EmailViewer();
+        emailViewer.addToAddress("wangzheng@xzg.com");
+        EmailReporter emailReporter = new EmailReporter(storage, aggregator, emailViewer);
         emailReporter.startDailyReport();
 
+        // 收集接口访问数据
         MetricsCollector collector = new MetricsCollector(storage);
         collector.recordRequest(new RequestInfo("register", 123, 10234));
         collector.recordRequest(new RequestInfo("register", 223, 11234));

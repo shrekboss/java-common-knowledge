@@ -1,6 +1,9 @@
 package org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.v1;
 
 
+import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.RequestInfo;
+import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.RequestStat;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -28,7 +31,7 @@ public class Aggregator {
         if (count != 0) {
             avgRespTime = sumRespTime / count;
         }
-        long tps = (long)(count / durationInMillis * 1000);
+        long tps = (long) (count / durationInMillis * 1000);
         Collections.sort(requestInfos, new Comparator<RequestInfo>() {
             @Override
             public int compare(RequestInfo o1, RequestInfo o2) {
@@ -42,8 +45,8 @@ public class Aggregator {
                 }
             }
         });
-        int idx999 = (int)(count * 0.999);
-        int idx99 = (int)(count * 0.99);
+        int idx999 = (int) (count * 0.999);
+        int idx99 = (int) (count * 0.99);
         if (count != 0) {
             p999RespTime = requestInfos.get(idx999).getResponseTime();
             p99RespTime = requestInfos.get(idx99).getResponseTime();

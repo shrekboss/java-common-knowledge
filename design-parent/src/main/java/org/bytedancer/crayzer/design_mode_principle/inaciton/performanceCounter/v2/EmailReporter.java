@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.v1;
+package org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.v2;
 
 import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.MetricsStorage;
 import org.bytedancer.crayzer.design_mode_principle.inaciton.performanceCounter.RequestInfo;
@@ -10,20 +10,13 @@ public class EmailReporter {
     private static final Long DAY_HOURS_IN_SECONDS = 86400L;
 
     private MetricsStorage metricsStorage;
-    private EmailSender emailSender;
-    private List<String> toAddresses = new ArrayList<>();
+    private Aggregator aggregator;
+    private StatViewer viewer;
 
-    public EmailReporter(MetricsStorage metricsStorage) {
-        this(metricsStorage, new EmailSender(/*省略参数*/));
-    }
-
-    public EmailReporter(MetricsStorage metricsStorage, EmailSender emailSender) {
+    public EmailReporter(MetricsStorage metricsStorage, Aggregator aggregator, StatViewer viewer) {
         this.metricsStorage = metricsStorage;
-        this.emailSender = emailSender;
-    }
-
-    public void addToAddress(String address) {
-        toAddresses.add(address);
+        this.aggregator = aggregator;
+        this.viewer = viewer;
     }
 
     public void startDailyReport() {
@@ -43,14 +36,8 @@ public class EmailReporter {
                 long startTimeInMillis = endTimeInMillis - durationInMillis;
                 Map<String, List<RequestInfo>> requestInfos =
                         metricsStorage.getRequestInfos(startTimeInMillis, endTimeInMillis);
-                Map<String, RequestStat> stats = new HashMap<>();
-                for (Map.Entry<String, List<RequestInfo>> entry : requestInfos.entrySet()) {
-                    String apiName = entry.getKey();
-                    List<RequestInfo> requestInfosPerApi = entry.getValue();
-                    RequestStat requestStat = Aggregator.aggregate(requestInfosPerApi, durationInMillis);
-                    stats.put(apiName, requestStat);
-                }
-                // TODO: 格式化为html格式，并且发送邮件
+                Map<String, RequestStat> stats = aggregator.aggregate(requestInfos, durationInMillis);
+                viewer.output(stats, startTimeInMillis, endTimeInMillis);
             }
         }, firstTime, DAY_HOURS_IN_SECONDS * 1000);
     }
