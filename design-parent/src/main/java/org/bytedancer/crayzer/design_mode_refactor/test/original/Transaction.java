@@ -41,6 +41,7 @@ public class Transaction {
         if ((buyerId == null || (sellerId == null || amount < 0.0))) {
             throw new InvalidTransactionException(/*...*/);
         }
+
         if (status == STATUS.EXECUTED) return true;
         boolean isLocked = false;
         try {
