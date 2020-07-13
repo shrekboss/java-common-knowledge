@@ -42,7 +42,7 @@ public class Keyword {
     }
 
     // Deep copy 2
-    public Object deepCopy (Object object) throws IOException, ClassNotFoundException {
+    public Object deepCopy(Object object) throws IOException, ClassNotFoundException {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         ObjectOutputStream oo = new ObjectOutputStream(bo);
         oo.writeObject(object);

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Keyword {
-        private HashMap<String, SearchWord> currentKeywords=new HashMap<>();
+    private HashMap<String, SearchWord> currentKeywords = new HashMap<>();
     private long lastUpdateTime = -1;
 
     public void refresh() {
