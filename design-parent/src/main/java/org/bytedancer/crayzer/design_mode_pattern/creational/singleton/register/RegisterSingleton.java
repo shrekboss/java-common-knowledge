@@ -60,7 +60,7 @@ public class RegisterSingleton {
      * @param args
      */
     public static void main(String[] args) {
-        // testMultithreaded();
+        testMultithreaded();
         // System.out.println("=============华丽的分割线=============");
         testExtends();
 
@@ -98,7 +98,7 @@ public class RegisterSingleton {
         for (int i = 0; i < count; i++) {
 
             new Thread(() -> {
-                RegisterSingleton singleton = RegisterSingleton.getInstance("org.crayzer.demo.singleton.register.RegisterSingleton");
+                RegisterSingleton singleton = RegisterSingleton.getInstance("org.bytedancer.crayzer.design_mode_pattern.creational.singleton.register.RegisterSingleton");
                 System.out.println(System.currentTimeMillis() + ":" + singleton);
                 latch.countDown();
             }).start();
