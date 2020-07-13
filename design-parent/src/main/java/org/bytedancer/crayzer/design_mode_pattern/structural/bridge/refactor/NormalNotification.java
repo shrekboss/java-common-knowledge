@@ -7,7 +7,7 @@ public class NormalNotification extends Notification {
 
     @Override
     public void notify(String message) {
-
+        msgSender.send(message);
     }
     // 与SevereNotification代码结构类似，所以省略...
 }
