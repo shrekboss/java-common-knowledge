@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.original;
+package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry;
 
 
 import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.InvalidRuleConfigException;

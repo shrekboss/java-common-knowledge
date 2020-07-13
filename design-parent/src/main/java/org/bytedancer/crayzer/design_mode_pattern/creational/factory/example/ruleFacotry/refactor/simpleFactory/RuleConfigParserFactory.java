@@ -1,6 +1,6 @@
 package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.refactor.simpleFactory;
 
-import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.original.*;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.*;
 
 import java.util.HashMap;
 import java.util.Map;
