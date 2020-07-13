@@ -9,14 +9,15 @@ import java.util.Map;
 
 public class EmailViewer implements StatViewer {
     private EmailSender emailSender;
-    private List toAddresses = new ArrayList<>();
+    private List<String> toAddresses;
 
     public EmailViewer() {
         this.emailSender = new EmailSender(/*省略参数*/);
+        this.toAddresses = new ArrayList<>();
     }
 
-    public EmailViewer(EmailSender emailSender) {
-        this.emailSender = emailSender;
+    public EmailViewer(List<String> emailToAddressesr) {
+        this.toAddresses = emailToAddressesr;
     }
 
     public void addToAddress(String address) {

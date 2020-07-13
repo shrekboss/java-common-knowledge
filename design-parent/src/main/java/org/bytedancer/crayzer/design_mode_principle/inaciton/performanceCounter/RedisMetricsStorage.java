@@ -9,6 +9,7 @@ public class RedisMetricsStorage implements MetricsStorage {
     @Override
     public void saveRequestInfo(RequestInfo requestInfo) {
         //...
+        System.out.println("保存数据");
     }
 
     @Override
