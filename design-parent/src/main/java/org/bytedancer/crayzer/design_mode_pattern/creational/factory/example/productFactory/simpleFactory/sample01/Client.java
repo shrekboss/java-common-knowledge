@@ -1,7 +1,7 @@
 package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.simpleFactory.sample01;
 
-import org.crayzer.demo.factory.TV;
-import org.crayzer.demo.factory.XMLUtilTV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.TV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.XMLUtilTV;
 
 /**
  * class_name: Client

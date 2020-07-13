@@ -23,7 +23,7 @@ public class XMLUtil {
             String cName = classNode.getNodeValue();
 
             //通过类名生成实例对象并将其返回
-            Class c = Class.forName("org.crayzer.demo.factory.abstractFactory."+cName);
+            Class c = Class.forName("org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.abstractFactory."+cName);
             Object obj = c.newInstance();
             return obj;
         } catch (Exception e) {

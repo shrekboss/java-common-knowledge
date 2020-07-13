@@ -1,7 +1,7 @@
 package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.factoryMethod;
 
-import org.crayzer.demo.factory.HisenseTV;
-import org.crayzer.demo.factory.TV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.HisenseTV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.TV;
 
 public class HisenseTVFactory implements TVFactory {
     @Override

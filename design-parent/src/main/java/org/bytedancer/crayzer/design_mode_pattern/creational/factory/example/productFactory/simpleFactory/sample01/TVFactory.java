@@ -1,8 +1,8 @@
 package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.simpleFactory.sample01;
 
-import org.crayzer.demo.factory.HaierTV;
-import org.crayzer.demo.factory.HisenseTV;
-import org.crayzer.demo.factory.TV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.HaierTV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.HisenseTV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.TV;
 
 public class TVFactory {
     public static TV produceTV(String brand) {

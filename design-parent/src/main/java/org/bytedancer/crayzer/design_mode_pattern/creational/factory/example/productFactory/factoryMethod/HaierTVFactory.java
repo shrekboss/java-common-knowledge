@@ -1,7 +1,7 @@
 package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.factoryMethod;
 
-import org.crayzer.demo.factory.HaierTV;
-import org.crayzer.demo.factory.TV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.HaierTV;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.productFactory.TV;
 
 public class HaierTVFactory implements TVFactory {
     @Override
