@@ -1,9 +1,9 @@
-package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.refactor.factoryMethod;
+package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.refactor.factoryMethod;
 
 
 import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.InvalidRuleConfigException;
-import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.original.IRuleConfigParser;
-import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.original.RuleConfig;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.original.IRuleConfigParser;
+import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.original.RuleConfig;
 
 public class RuleConfigSource {
     public RuleConfig load(String ruleConfigFilePath) {

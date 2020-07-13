@@ -1,15 +1,21 @@
-package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.refactor.simpleFactory;
+package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.original;
 
 
 import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.InvalidRuleConfigException;
-import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.original.IRuleConfigParser;
-import org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.original.RuleConfig;
 
 public class RuleConfigSource {
     public RuleConfig load(String ruleConfigFilePath) {
         String ruleConfigFileExtension = getFileExtension(ruleConfigFilePath);
-        IRuleConfigParser parser = RuleConfigParserFactory.createParser(ruleConfigFileExtension);
-        if (parser == null) {
+        IRuleConfigParser parser = null;
+        if ("json".equalsIgnoreCase(ruleConfigFileExtension)) {
+            parser = new JsonRuleConfigParser();
+        } else if ("xml".equalsIgnoreCase(ruleConfigFileExtension)) {
+            parser = new XmlRuleConfigParser();
+        } else if ("yaml".equalsIgnoreCase(ruleConfigFileExtension)) {
+            parser = new YamlRuleConfigParser();
+        } else if ("properties".equalsIgnoreCase(ruleConfigFileExtension)) {
+            parser = new PropertiesRuleConfigParser();
+        } else {
             throw new InvalidRuleConfigException(
                     "Rule config file format is not supported: " + ruleConfigFilePath);
         }

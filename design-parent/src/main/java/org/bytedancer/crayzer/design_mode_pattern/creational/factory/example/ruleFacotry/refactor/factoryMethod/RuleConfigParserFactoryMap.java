@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.refactor.factoryMethod;
+package org.bytedancer.crayzer.design_mode_pattern.creational.factory.example.ruleFacotry.refactor.factoryMethod;
 
 import java.util.HashMap;
 import java.util.Map;
