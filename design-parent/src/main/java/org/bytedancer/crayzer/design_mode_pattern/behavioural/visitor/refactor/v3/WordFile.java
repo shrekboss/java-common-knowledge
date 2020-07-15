@@ -7,7 +7,7 @@ public class WordFile extends ResourceFile {
 
     @Override
     public ResourceFileType getType() {
-        return ResourceFileType.PDF;
+        return ResourceFileType.WORD;
     }
 
     //...

@@ -7,7 +7,7 @@ public class PPTFile extends ResourceFile {
 
     @Override
     public ResourceFileType getType() {
-        return ResourceFileType.PDF;
+        return ResourceFileType.PPT;
     }
 
     //...
