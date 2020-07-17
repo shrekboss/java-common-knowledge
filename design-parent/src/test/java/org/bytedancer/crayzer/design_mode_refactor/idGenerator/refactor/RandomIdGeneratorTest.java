@@ -17,8 +17,6 @@ public class RandomIdGeneratorTest {
         Assert.assertEquals("field1#field2$field3", actualSubstr);
     }
 
-    // 此单元测试会失败，因为我们在代码中没有处理hostName为null或空字符串的情况
-    // 这部分优化留在第36、37节课中讲解
     @Test
     public void testGetLastSubstrSplittedByDot_nullOrEmpty() {
         RandomIdGenerator idGenerator = new RandomIdGenerator();
@@ -40,8 +38,6 @@ public class RandomIdGeneratorTest {
         }
     }
 
-    // 此单元测试会失败，因为我们在代码中没有处理length<=0的情况
-    // 这部分优化留在第36、37节课中讲解
     @Test
     public void testGenerateRandomAlphameric_lengthEqualsOrLessThanZero() {
         RandomIdGenerator idGenerator = new RandomIdGenerator();
