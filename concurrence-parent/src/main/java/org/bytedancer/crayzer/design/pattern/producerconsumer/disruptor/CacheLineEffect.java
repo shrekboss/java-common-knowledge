@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.design_mode_refactor.idGenerator.refactor;
+package org.bytedancer.crayzer.design.pattern.producerconsumer.disruptor;
 
 public class CacheLineEffect {
     //考虑一般缓存行大小是64字节，一个 long 类型占8字节
