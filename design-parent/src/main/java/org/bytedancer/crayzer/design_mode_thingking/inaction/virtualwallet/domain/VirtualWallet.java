@@ -30,17 +30,17 @@ public class VirtualWallet { // Domain领域模型(充血模型)
         return this.balance;
     }
 
-    public BigDecimal getAvaliableBalance() {
-        BigDecimal totalAvaliableBalance = this.balance.subtract(this.frozenAmount);
+    public BigDecimal getAvailableBalance() {
+        BigDecimal totalAvailableBalance = this.balance.subtract(this.frozenAmount);
         if (isAllowedOverdraft) {
-            totalAvaliableBalance = totalAvaliableBalance.add(this.overdraftAmount);
+            totalAvailableBalance = totalAvailableBalance.add(this.overdraftAmount);
         }
-        return totalAvaliableBalance;
+        return totalAvailableBalance;
     }
 
     public void debit(BigDecimal amount) {
-        BigDecimal totoalAvaliableBalance = getAvaliableBalance();
-        if (totoalAvaliableBalance.compareTo(amount) < 0) {
+        BigDecimal totalAvailableBalance = getAvailableBalance();
+        if (totalAvailableBalance.compareTo(amount) < 0) {
             throw new InsufficientBalanceException();
         }
         this.balance.subtract(amount);

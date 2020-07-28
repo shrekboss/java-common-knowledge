@@ -1,6 +1,4 @@
-package org.bytedancer.crayzer.design_mode_thingking.bird;
-
-import org.bytedancer.crayzer.design_mode_thingking.inaction.bird.*;
+package org.bytedancer.crayzer.design_mode_thingking.inaction.bird;
 
 public class Sparrow implements Flyable, Tweetable, EggLayable { // 麻雀
 
