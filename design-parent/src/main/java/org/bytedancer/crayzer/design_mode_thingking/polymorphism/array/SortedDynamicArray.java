@@ -1,6 +1,4 @@
-package org.bytedancer.crayzer.design_mode_thingking.polymorphism.eg.array;
-
-import org.bytedancer.crayzer.design_mode_thingking.polymorphism.array.DynamicArray;
+package org.bytedancer.crayzer.design_mode_thingking.polymorphism.array;
 
 public class SortedDynamicArray extends DynamicArray {
     @Override

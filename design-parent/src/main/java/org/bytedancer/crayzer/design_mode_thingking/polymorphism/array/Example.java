@@ -11,7 +11,7 @@ public class Example {
     }
 
     public static void main(String args[]) {
-        DynamicArray dynamicArray = new org.bytedancer.crayzer.design_mode_thingking.polymorphism.eg.array.SortedDynamicArray();
+        DynamicArray dynamicArray = new SortedDynamicArray();
         test(dynamicArray); // 打印结果：1、3、5
     }
 }
