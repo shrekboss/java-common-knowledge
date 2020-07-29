@@ -6,7 +6,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalTime;
+import java.util.Collections;
 import java.util.concurrent.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.file.StandardOpenOption.CREATE;
+import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
+import static org.bytedancer.crayzer.common_dev_error.threadpool.PrintThreadPoolStats.printStats;
 
 @RestController
 @RequestMapping("threadpoolmixuse")
@@ -30,47 +42,38 @@ public class ThreadPoolMixuseController {
             new ArrayBlockingQueue<>(1000),
             new ThreadFactoryBuilder().setNameFormat("asynccalc-threadpool-%d").get());
 
-    private void printStats(ThreadPoolExecutor threadPool) {
-        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
-            log.info("=========================");
-            log.info("Pool Size: {}", threadPool.getPoolSize());
-            log.info("Active Threads: {}", threadPool.getActiveCount());
-            log.info("Number of Tasks Completed: {}", threadPool.getCompletedTaskCount());
-            log.info("Number of Tasks in Queue: {}", threadPool.getQueue().size());
-
-            log.info("=========================");
-        }, 0, 1, TimeUnit.SECONDS);
-    }
-
     /**
      * describe: 模拟一下文件批处理的代码，在程序启动后通过一个线程开启死循环逻辑，不断向线程池提交任务，
      * 任务的逻辑是向一个文件中写入大量的数据：
      **/
     // @PostConstruct
-    // public void init() {
-    //     printStats(threadPool);
-    //
-    //     new Thread(() -> {
-    //         String payload = IntStream.rangeClosed(1, 1_000_000)
-    //                 .mapToObj(__ -> "a")
-    //                 .collect(Collectors.joining(""));
-    //         while (true) {
-    //             threadPool.execute(() -> {
-    //                 try {
-    //                     Files.write(Paths.get("demo.txt"), Collections.singletonList(LocalTime.now().toString() + ":" + payload), UTF_8, CREATE, TRUNCATE_EXISTING);
-    //                 } catch (IOException e) {
-    //                     e.printStackTrace();
-    //                 }
-    //                 log.info("batch file processing done");
-    //             });
-    //         }
-    //     }).start();
-    // }
+    public void init() {
+        printStats(threadPool);
+
+        new Thread(() -> {
+            String payload = IntStream.rangeClosed(1, 1_000_000)
+                    .mapToObj(__ -> "a")
+                    .collect(Collectors.joining(""));
+            while (true) {
+                threadPool.execute(() -> {
+                    try {
+                        Files.write(
+                                Paths.get("demo.txt"),
+                                Collections.singletonList(LocalTime.now().toString() + ":" + payload),
+                                UTF_8, CREATE, TRUNCATE_EXISTING);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    log.info("batch file processing done");
+                });
+            }
+        }).start();
+    }
 
     /**
      * wrk -t100 -c100 -d 10s http://localhost:8080/threadpoolmixuse/wrong
      * tps: 74.99
-     *
+     * <p>
      * 因为原来执行 IO 任务的线程池使用的是 CallerRunsPolicy 策略，所以直接使用这个线程池进行异步计算的话，
      * 当线程池饱和的时候，计算任务会在执行 Web 请求的 Tomcat 线程执行，这时就会进一步影响到其他同步处理的线程，甚至造成整个应用程序崩溃。
      */
@@ -94,6 +97,4 @@ public class ThreadPoolMixuseController {
             return 1;
         };
     }
-
-
 }

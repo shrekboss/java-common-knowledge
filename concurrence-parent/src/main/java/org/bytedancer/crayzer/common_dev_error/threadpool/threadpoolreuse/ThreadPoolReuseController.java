@@ -19,7 +19,6 @@ import java.util.stream.IntStream;
 @Slf4j
 public class ThreadPoolReuseController {
 
-
     @GetMapping("wrong")
     public String wrong() throws InterruptedException {
         ThreadPoolExecutor threadPool = ThreadPoolHelper.getThreadPool();

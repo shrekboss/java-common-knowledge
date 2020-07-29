@@ -7,29 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static org.bytedancer.crayzer.common_dev_error.threadpool.PrintThreadPoolStats.printStats;
 
 @RestController
 @RequestMapping("threadpooloom")
 @Slf4j
 public class ThreadPoolOOMController {
-
-    private void printStats(ThreadPoolExecutor threadPool) {
-        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
-            log.info("=========================");
-            log.info("Pool Size: {}", threadPool.getPoolSize());
-            log.info("Active Threads: {}", threadPool.getActiveCount());
-            log.info("Number of Tasks Completed: {}", threadPool.getCompletedTaskCount());
-            log.info("Number of Tasks in Queue: {}", threadPool.getQueue().size());
-            log.info("=========================");
-        }, 0, 1, TimeUnit.SECONDS);
-    }
 
     /**
      * Exception in thread "http-nio-45678-ClientPoller" java.lang.OutOfMemoryError: GC overhead limit exceeded
@@ -39,13 +27,9 @@ public class ThreadPoolOOMController {
 
         /**
          * newFixedThreadPool() 默认使用 LinkedBlockingQueue 默认构造方法的 LinkedBlockingQueue
-         * 是一个 Integer.MAX_VALUE 长度的队列，可以认为是无界的;
-         *
-         * newCachedThreadPool() 工作队列默认使用 SynchronousQueue 是一个没有存储空间的阻塞队列
+         * 是一个 Integer.MAX_VALUE 长度的队列，可以认为是无界的;(可选择性是否有界)
          */
         ThreadPoolExecutor threadPool = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
-        // ThreadPoolExecutor threadPool = Executors.newCachedThreadPool();
-        //打印线程池的信息，稍后我会解释这段代码
         printStats(threadPool);
         for (int i = 0; i < 100000000; i++) {
             threadPool.execute(() -> {
@@ -63,10 +47,13 @@ public class ThreadPoolOOMController {
         threadPool.shutdown();
         threadPool.awaitTermination(1, TimeUnit.HOURS);
     }
-    
+
+    /**
+     * newCachedThreadPool() 工作队列默认使用 SynchronousQueue 是一个没有存储空间的阻塞队列
+     */
     @GetMapping("/oom2")
     public void oom2() throws InterruptedException {
-        
+
         ThreadPoolExecutor threadPool = (ThreadPoolExecutor) Executors.newCachedThreadPool();
         printStats(threadPool);
         for (int i = 0; i < 100000000; i++) {
@@ -93,6 +80,9 @@ public class ThreadPoolOOMController {
                 new ArrayBlockingQueue<>(10),
                 new ThreadFactoryBuilder().setNameFormat("demo-threadpool-%d").get(),
                 new ThreadPoolExecutor.AbortPolicy());
+        // 声明线程池后立即调用 prestartAllCoreThreads 方法，来启动所有核心线程
+        // threadPool.prestartAllCoreThreads()
+        // 让线程池在空闲的时候同样回收核心线程
         // threadPool.allowCoreThreadTimeOut(true);
         printStats(threadPool);
         IntStream.rangeClosed(1, 20).forEach(i -> {
@@ -107,7 +97,61 @@ public class ThreadPoolOOMController {
                     log.info("{} started", id);
                     try {
                         TimeUnit.SECONDS.sleep(10);
-                    } catch (InterruptedException e) {}
+                    } catch (InterruptedException e) {
+                    }
+                    log.info("{} finished", id);
+                });
+            } catch (Exception ex) {
+                log.error("error submitting task {}", id, ex);
+                atomicInteger.decrementAndGet();
+            }
+        });
+        TimeUnit.SECONDS.sleep(60);
+        return atomicInteger.intValue();
+    }
+
+    @GetMapping("/better")
+    public int better() throws InterruptedException {
+        // 激进线程池的实现
+        BlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(10) {
+            @Override
+            public boolean offer(Runnable e) {
+                //先返回false，造成队列满的假象，让线程池优先扩容
+                return false;
+            }
+        };
+        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
+                2, 5,
+                5, TimeUnit.SECONDS,
+                queue, new ThreadFactoryBuilder().setNameFormat("demo-threadpool-%d").get(),
+                (r, executor) -> {
+                    try {
+                        //等出现拒绝后再加入队列
+                        //如果希望队列满了阻塞线程而不是抛出异常，那么可以注释掉下面三行代码，修改为executor.getQueue().put(r);
+                        // if (!executor.getQueue().offer(r, 0, TimeUnit.SECONDS)) {
+                        //     throw new RejectedExecutionException("ThreadPool queue full, failed to offer " + r.toString());
+                        // }
+                        executor.getQueue().put(r);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                });
+        printStats(threadPool);
+        AtomicInteger atomicInteger = new AtomicInteger();
+        IntStream.rangeClosed(1, 20).forEach(i -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            int id = atomicInteger.incrementAndGet();
+            try {
+                threadPool.submit(() -> {
+                    log.info("{} started", id);
+                    try {
+                        TimeUnit.SECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                    }
                     log.info("{} finished", id);
                 });
             } catch (Exception ex) {
