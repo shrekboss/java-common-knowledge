@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -143,6 +144,17 @@ public class ConcurrentHashMapErrController {
                     String key = "item" + ThreadLocalRandom.current().nextInt(ITEM_COUNT);
                     //利用computeIfAbsent()方法来实例化LongAdder，然后利用LongAdder来进行线程安全计数
                     freqs.computeIfAbsent(key, k -> new LongAdder()).increment();
+
+                    // computeIfAbsent和putIfAbsent区别是三点：
+                    // 1、当Key存在的时候，如果Value获取比较昂贵的话，putIfAbsent就白白浪费时间在获
+                    // 取这个昂贵的Value上（这个点特别注意）
+                    // 2、Key不存在的时候，putIfAbsent返回null，小心空指针，而computeIfAbsent返回计
+                    // 算后的值
+                    // 3、当Key不存在的时候，putIfAbsent允许put null进去，而computeIfAbsent不能，之
+                    // 后进行containsKey查询是有区别的（当然了，此条针对HashMap，ConcurrentHashMap
+                    // 不允许put null value进去）
+                    HashMap map = new HashMap();
+                    map.put(null, null);
                 }
         ));
         forkJoinPool.shutdown();
