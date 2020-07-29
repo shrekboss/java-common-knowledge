@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common.dev.err.threadsafe.lock;
+package org.bytedancer.crayzer.common_dev_error.lock;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,6 +10,10 @@ public class Interesting {
 
     public static void main(String[] args) {
         Interesting interesting = new Interesting();
+        // 两个线程是交错执行 add 和 compare 方法中的业务逻辑，而且这些业务逻辑不是原
+        // 子性的：a++ 和 b++ 操作中可以穿插在 compare 方法的比较代码中；更需要注意的
+        // 是，a < b 这种操作在字节码层面是 加载 a、加载 b 和比较三步，代码虽然是一行
+        // 但也不是原子性的
         new Thread(() -> interesting.add()).start();
         new Thread(() -> interesting.compare()).start();
     }
@@ -31,6 +35,7 @@ public class Interesting {
         log.info("add done");
     }
 
+    // a:185, b:652, true
     public void compare() {
         log.info("compare start");
         for (int i = 0; i < 10000; i++) {
@@ -38,6 +43,6 @@ public class Interesting {
                 log.info("a:{}, b:{}, {}", a, b, a > b);
             }
         }
-        log.info("compare end");
+        log.info("compare done");
     }
 }

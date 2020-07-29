@@ -8,7 +8,7 @@ class Point {
     private final StampedLock sl =
             new StampedLock();
     //计算到原点的距离
-    double distanceFromOrigin() {
+    double distanceFromOrigin(int x, int y) {
         // 乐观读
         long stamp =
                 sl.tryOptimisticRead();
@@ -29,7 +29,15 @@ class Point {
                 sl.unlockRead(stamp);
             }
         }
+        // System.out.println(Math.sqrt(
+        //         curX * curX + curY * curY));
         return Math.sqrt(
                 curX * curX + curY * curY);
+    }
+
+    public static void main(String[] args) {
+        Point point = new Point();
+        new Thread(() -> point.distanceFromOrigin(3, 4)).start();
+        new Thread(() -> point.distanceFromOrigin(6, 8)).start();
     }
 }

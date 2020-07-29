@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common.dev.err.threadsafe.lock;
+package org.bytedancer.crayzer.common_dev_error.lock;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,5 +25,13 @@ public class LockScopeController {
         RightData.reset();
         IntStream.rangeClosed(1, count).parallel().forEach(i -> new RightData().right());
         return RightData.getCounter();
+    }
+
+    public static void main(String[] args) {
+        IntStream.range(1, 10).parallel().forEach(i -> System.out.print(i));
+        System.out.println();
+        IntStream.range(1, 10).parallel().forEachOrdered(i -> System.out.print(i));
+        System.out.println();
+        IntStream.rangeClosed(1, 10).parallel().forEach(i -> System.out.print(i));
     }
 }

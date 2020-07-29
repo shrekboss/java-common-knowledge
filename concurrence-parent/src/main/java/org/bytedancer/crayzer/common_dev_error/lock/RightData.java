@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common.dev.err.threadsafe.lock;
+package org.bytedancer.crayzer.common_dev_error.lock;
 
 
 public class RightData {
@@ -12,7 +12,7 @@ public class RightData {
     }
 
     public void right() {
-        // this 和 locker 的区别 结果：使用this，非 100w
+        // this 和 locker 的区别 结果：使用this，locker
         synchronized (locker) {
             counter++;
         }

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common.dev.err.threadsafe.lock;
+package org.bytedancer.crayzer.common_dev_error.lock;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
