@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common.dev.err.concurrentTools;
+package org.bytedancer.crayzer.common_dev_error.concurrentTools;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +16,14 @@ import java.util.Map;
 @RequestMapping("/threadlocal")
 public class ThreadLocalErrController {
 
-    private static final ThreadLocal<Integer> currentUser = ThreadLocal.withInitial(() -> null);
+    private static final ThreadLocal<Integer> currentUser
+            = ThreadLocal.withInitial(() -> null);
 
     /**
      * 配置文件中设置一下 Tomcat 的参数
      *
      * step : server.tomcat.max-threads=1
+     *
      * {"before":"http-nio-8080-exec-1:null","after":"http-nio-8080-exec-1:1"}
      * {"before":"http-nio-8080-exec-1:1","after":"http-nio-8080-exec-1:2"}
      */

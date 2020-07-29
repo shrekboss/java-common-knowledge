@@ -24,13 +24,12 @@ import java.util.stream.LongStream;
 @Slf4j
 public class ConcurrentHashMapErrController {
 
-
     //线程个数
     private static int THREAD_COUNT = 10;
     //总元素数量
     private static int ITEM_COUNT = 1000;
 
-    //帮助方法，用来获得一个指定元素数量模拟数据的ConcurrentHashMap
+    // 获得一个指定元素数量模拟数据的ConcurrentHashMap
     private ConcurrentHashMap<String, Long> getData(int count) {
         return LongStream.rangeClosed(1, count)
                 .boxed()
@@ -48,9 +47,13 @@ public class ConcurrentHashMapErrController {
         //使用线程池并发处理逻辑
         forkJoinPool.execute(() -> IntStream.rangeClosed(1, 10).parallel().forEach(i -> {
             //查询还需要补充多少个元素
+            // Question 1: 诸如 size、isEmpty 和 containsValue 等聚合方法，在并发情况下可能会反映
+            // ConcurrentHashMap 的中间状态。因此，在并发情况下，这些方法的返回值只能作用于参考，
+            // 而不能用于流程控制
             int gap = ITEM_COUNT - concurrentHashMap.size();
             log.info("gap size:{}", gap);
             //补充元素
+            // Question 2：putAll 这样的聚合方法也不能确保原子性
             concurrentHashMap.putAll(getData(gap));
         }));
         //等待所有任务完成
@@ -83,28 +86,29 @@ public class ConcurrentHashMapErrController {
         return "OK";
     }
 
-    private static int LOOP_COUNT = 10_000_000;
+    private static final int LOOP_COUNT = 10_000_000;
 
     @GetMapping("good")
     public String good() throws InterruptedException {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("normaluse");
-        Map<String, Long> normaluse = normaluse();
+        Map<String, Long> normalUse = normalUse();
         stopWatch.stop();
         //校验元素数量
-        Assert.isTrue(normaluse.size() == ITEM_COUNT, "normaluse size error");
+        Assert.isTrue(normalUse.size() == ITEM_COUNT, "normalUse size error");
         //校验累计总数
-        Assert.isTrue(normaluse.entrySet().stream()
-                        .mapToLong(item -> item.getValue()).reduce(0, Long::sum) == LOOP_COUNT
-                , "normaluse count error");
-        stopWatch.start("gooduse");
-        Map<String, Long> gooduse = gooduse();
-        stopWatch.stop();
-        Assert.isTrue(gooduse.size() == ITEM_COUNT, "gooduse size error");
-        Assert.isTrue(gooduse.entrySet().stream()
+        Assert.isTrue(normalUse.entrySet().stream()
                         .mapToLong(item -> item.getValue())
                         .reduce(0, Long::sum) == LOOP_COUNT
-                , "gooduse count error");
+                , "normalUse count error");
+        stopWatch.start("goodUse");
+        Map<String, Long> goodUse = goodUse();
+        stopWatch.stop();
+        Assert.isTrue(goodUse.size() == ITEM_COUNT, "goodUse size error");
+        Assert.isTrue(goodUse.entrySet().stream()
+                        .mapToLong(item -> item.getValue())
+                        .reduce(0, Long::sum) == LOOP_COUNT
+                , "goodUse count error");
         log.info(stopWatch.prettyPrint());
         return "OK";
     }
@@ -113,14 +117,17 @@ public class ConcurrentHashMapErrController {
      * 通过锁的方式锁住 Map，然后做判断、读取现在的累计值、加 1、保存累加后值的逻辑。
      * 这段代码在功能上没有问题，但无法充分发挥 ConcurrentHashMap 的威力
      */
-    private Map<String, Long> normaluse() throws InterruptedException {
+    private Map<String, Long> normalUse() throws InterruptedException {
         ConcurrentHashMap<String, Long> freqs = new ConcurrentHashMap<>(ITEM_COUNT);
         ForkJoinPool forkJoinPool = new ForkJoinPool(THREAD_COUNT);
         forkJoinPool.execute(() -> IntStream.rangeClosed(1, LOOP_COUNT).parallel().forEach(i -> {
             String key = "item" + ThreadLocalRandom.current().nextInt(ITEM_COUNT);
             synchronized (freqs) {
-                if (freqs.containsKey(key)) freqs.put(key, freqs.get(key) + 1);
-                else freqs.put(key, 1L);
+                if (freqs.containsKey(key)) {
+                    freqs.put(key, freqs.get(key) + 1);
+                } else {
+                    freqs.put(key, 1L);
+                }
             }
         }));
         forkJoinPool.shutdown();
@@ -129,7 +136,7 @@ public class ConcurrentHashMapErrController {
     }
 
 
-    private Map<String, Long> gooduse() throws InterruptedException {
+    private Map<String, Long> goodUse() throws InterruptedException {
         ConcurrentHashMap<String, LongAdder> freqs = new ConcurrentHashMap<>(ITEM_COUNT);
         ForkJoinPool forkJoinPool = new ForkJoinPool(THREAD_COUNT);
         forkJoinPool.execute(() -> IntStream.rangeClosed(1, LOOP_COUNT).parallel().forEach(i -> {
