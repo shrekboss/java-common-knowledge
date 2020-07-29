@@ -74,8 +74,9 @@ public class ThreadPoolMixuseController {
      * wrk -t100 -c100 -d 10s http://localhost:8080/threadpoolmixuse/wrong
      * tps: 74.99
      * <p>
-     * 因为原来执行 IO 任务的线程池使用的是 CallerRunsPolicy 策略，所以直接使用这个线程池进行异步计算的话，
-     * 当线程池饱和的时候，计算任务会在执行 Web 请求的 Tomcat 线程执行，这时就会进一步影响到其他同步处理的线程，甚至造成整个应用程序崩溃。
+     * 因为原来执行 IO 任务的线程池使用的是 CallerRunsPolicy 策略，所以直接使用这个线程池进行异步
+     * 计算的话，当线程池饱和的时候，计算任务会在执行 Web 请求的 Tomcat 线程执行，这时就会进一步
+     * 影响到其他同步处理的线程，甚至造成整个应用程序崩溃。
      */
     @GetMapping("wrong")
     public int wrong() throws ExecutionException, InterruptedException {
