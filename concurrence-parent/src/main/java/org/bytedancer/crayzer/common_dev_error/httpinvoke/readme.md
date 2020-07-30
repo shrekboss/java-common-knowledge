@@ -99,3 +99,15 @@ public class PoolingHttpClientConnectionManager
 成为瓶颈。举一个例子，使用同一个 HttpClient 访问 10 个域名，defaultMaxPerRoute 设置为 10，为确保每一个域名都能达到 10 并发，
 需要把 maxTotal 设置为 100。
 ### （补充）Feign方法级别设置超时的例子：feignpermethodtimeout
+```java
+@FeignClient(name = "clientsdk")
+public interface Client {
+    @GetMapping("/feignpermethodtimeout/method1")
+    String method1(Request.Options options);
+
+    @GetMapping("/feignpermethodtimeout/method2")
+    String method2(Request.Options options);
+// 使用 
+// client.method2(new Request.Options(1000, 3500));
+}
+```
