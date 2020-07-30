@@ -1,13 +1,14 @@
-package org.bytedancer.crayzer.common_dev_error;
+package org.bytedancer.crayzer.common_dev_error.coding.connPool.httpclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
-public class ConcurrenceParentApplication {
+public class CommonMistakesApplication {
 
     public static void main(String[] args) {
-    	SpringApplication.run(ConcurrenceParentApplication.class, args);
+        SpringApplication.run(CommonMistakesApplication.class, args);
     }
-
 }
+
