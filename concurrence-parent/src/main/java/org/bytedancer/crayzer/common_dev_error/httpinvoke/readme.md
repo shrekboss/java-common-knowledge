@@ -38,11 +38,11 @@ ribbon.ConnectTimeout=4000`
     
 这说明客户端自作主张进行了一次重试，导致短信重复发送。
 一是，把发短信接口从 Get 改为 Post。
-client: 
+client: port 45678
 [02:00:43.060] [INFO ] [RibbonRetryIssueClientController:22  ] - client is called
 [02:00:44.083] [INFO ] [RibbonRetryIssueServerController:17  ] - http://localhost:45678/ribbonretryissueserver/wrong is called, 13600000000=>c71df0f0-040b-4195-a77f-fa6aecac7ef5
 [02:00:45.077] [ERROR] [RibbonRetryIssueClientController:26  ] - send sms failed : Read timed out executing GET http://SmsClient/ribbonretryissueserver/wrong?mobile=13600000000&message=c71df0f0-040b-4195-a77f-fa6aecac7ef5
-server:
+server: port 45679
 [02:00:43.074] [http-nio-45679-exec-2] [INFO ] [o.b.c.c.h.r.RibbonRetryIssueServerController:17  ] - http://localhost:45679/ribbonretryissueserver/wrong is called, 13600000000=>c71df0f0-040b-4195-a77f-fa6aecac7ef5
 
 ```
@@ -73,16 +73,29 @@ public boolean canRetryNextServer(LoadBalancedRetryContext context) {
          && canRetry(context);
 }
 ```
-#### 实验二：ribbonretry/CommonMistakesApplicationNoRetry
-```
-client: 
-[02:00:43.060] [INFO ] [RibbonRetryIssueClientController:22  ] - client is called
-[02:00:44.083] [INFO ] [RibbonRetryIssueServerController:17  ] - http://localhost:45678/ribbonretryissueserver/wrong is called, 13600000000=>c71df0f0-040b-4195-a77f-fa6aecac7ef5
-[02:00:45.077] [ERROR] [RibbonRetryIssueClientController:26  ] - send sms failed : Read timed out executing GET http://SmsClient/ribbonretryissueserver/wrong?mobile=13600000000&message=c71df0f0-040b-4195-a77f-fa6aecac7ef5
-server:
-[02:00:43.074] [http-nio-45679-exec-2] [INFO ] [o.b.c.c.h.r.RibbonRetryIssueServerController:17  ] - http://localhost:45679/ribbonretryissueserver/wrong is called, 13600000000=>c71df0f0-040b-4195-a77f-fa6aecac7ef5
 
-
-```
 ### 并发限制了爬虫的抓取能力：routelimit
+```java
+public class PoolingHttpClientConnectionManager
+    implements HttpClientConnectionManager, ConnPoolControl<HttpRoute>, Closeable {
+    // 
+    public PoolingHttpClientConnectionManager(
+        final HttpClientConnectionOperator httpClientConnectionOperator,
+        final HttpConnectionFactory<HttpRoute, ManagedHttpClientConnection> connFactory,
+        final long timeToLive, final TimeUnit timeUnit) {
+        super();
+        this.configData = new ConfigData();
+        this.pool = new CPool(new InternalConnectionFactory(
+                this.configData, connFactory), 2, 20, timeToLive, timeUnit);
+        this.pool.setValidateAfterInactivity(2000);
+        this.connectionOperator = Args.notNull(httpClientConnectionOperator, "HttpClientConnectionOperator");
+        this.isShutDown = new AtomicBoolean(false);
+    }
+}
+```
+- defaultMaxPerRoute=2，也就是同一个主机 / 域名的最大并发请求数为 2。我们的爬虫需要 10 个并发，显然是默认值太小限制了爬虫的
+效率。
+- maxTotal=20，也就是所有主机整体最大并发为 20，这也是 HttpClient 整体的并发度。目前，我们请求数是 10 最大并发是 10，20 不会
+成为瓶颈。举一个例子，使用同一个 HttpClient 访问 10 个域名，defaultMaxPerRoute 设置为 10，为确保每一个域名都能达到 10 并发，
+需要把 maxTotal 设置为 100。
 ### （补充）Feign方法级别设置超时的例子：feignpermethodtimeout
