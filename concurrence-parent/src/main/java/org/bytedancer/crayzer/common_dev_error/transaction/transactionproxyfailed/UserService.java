@@ -20,7 +20,14 @@ public class UserService {
         log.info("this {} self {}", this.getClass().getName(), self.getClass().getName());
     }
 
-    //私有方法
+    /**
+     * 私有方法
+     * @Transactional 生效原则 1，除非特殊配置（比如使用 AspectJ 静态织入实现 AOP），否则只有定义
+     * 在 public 方法上的 @Transactional 才能生效
+     * <p>
+     * Spring 默认通过动态代理的方式实现 AOP，对目标方法进行增强，private 方法无法代理到，Spring
+     * 自然也无法动态增强事务处理逻辑。
+     */
     public int createUserWrong1(String name) {
         try {
             this.createUserPrivate(new UserEntity(name));
@@ -30,10 +37,17 @@ public class UserService {
         return userRepository.findByName(name).size();
     }
 
-    //自调用
+    /**
+     * 自调用
+     * @Transactional 生效原则 2，必须通过代理过的类从外部调用目标方法才能生效。
+     * spring 通过 AOP 技术对方法进行增s强，要调用增强过的方法必然是调用代理后的对象。
+     * @param name
+     * @return
+     */
     public int createUserWrong2(String name) {
         try {
             this.createUserPublic(new UserEntity(name));
+            // self.createUserPublic(new UserEntity(name)); 正确
         } catch (Exception ex) {
             log.error("create user failed because {}", ex.getMessage());
         }
@@ -42,6 +56,7 @@ public class UserService {
 
     @Transactional
     private void createUserPrivate(UserEntity entity) {
+    // public void createUserPrivate(UserEntity entity) { 正确
         userRepository.save(entity);
         if (entity.getName().contains("test"))
             throw new RuntimeException("invalid username!");
