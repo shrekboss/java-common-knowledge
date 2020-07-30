@@ -6,13 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class CommonMistakesApplication {
+public class CommonMistakesApplicationRetry {
 
     public static void main(String[] args) {
         Utils.loadPropertySource(
-                CommonMistakesApplication.class,
+                CommonMistakesApplicationRetry.class,
                 "default-ribbon.properties");
-        SpringApplication.run(CommonMistakesApplication.class, args);
+        SpringApplication.run(CommonMistakesApplicationRetry.class, args);
     }
 }
 
