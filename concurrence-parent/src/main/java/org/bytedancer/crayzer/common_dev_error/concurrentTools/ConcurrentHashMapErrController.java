@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 @RestController
-@RequestMapping("concurrenthashmap")
+@RequestMapping("/concurrenthashmap")
 @Slf4j
 public class ConcurrentHashMapErrController {
 
@@ -38,7 +38,7 @@ public class ConcurrentHashMapErrController {
                         (o1, o2) -> o1, ConcurrentHashMap::new));
     }
 
-    @GetMapping("wrong")
+    @GetMapping("/wrong")
     public String wrong() throws InterruptedException {
         ConcurrentHashMap<String, Long> concurrentHashMap = getData(ITEM_COUNT - 100);
         //初始900个元素
@@ -65,7 +65,7 @@ public class ConcurrentHashMapErrController {
         return "OK";
     }
 
-    @GetMapping("right")
+    @GetMapping("/right")
     public String right() throws InterruptedException {
         ConcurrentHashMap<String, Long> concurrentHashMap = getData(ITEM_COUNT - 100);
         log.info("init size:{}", concurrentHashMap.size());

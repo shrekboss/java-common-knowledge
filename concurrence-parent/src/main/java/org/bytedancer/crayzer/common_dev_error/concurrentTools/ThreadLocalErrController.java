@@ -22,7 +22,7 @@ public class ThreadLocalErrController {
     /**
      * 配置文件中设置一下 Tomcat 的参数
      *
-     * step : server.tomcat.max-threads=1
+     * step : -Dserver.tomcat.max-threads=1
      *
      * {"before":"http-nio-8080-exec-1:null","after":"http-nio-8080-exec-1:1"}
      * {"before":"http-nio-8080-exec-1:1","after":"http-nio-8080-exec-1:2"}

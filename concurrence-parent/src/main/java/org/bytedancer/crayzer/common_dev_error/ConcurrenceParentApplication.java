@@ -6,8 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ConcurrenceParentApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConcurrenceParentApplication.class, args);
-	}
+    public static void main(String[] args) {
+    	/* connPool#datasource */
+		// Utils.loadPropertySource(ConcurrenceParentApplication.class, "connPool/datasource/bad.properties");
+		// Utils.loadPropertySource(ConcurrenceParentApplication.class, "connPool/datasource/good.properties");
+
+    	SpringApplication.run(ConcurrenceParentApplication.class, args);
+    }
 
 }
