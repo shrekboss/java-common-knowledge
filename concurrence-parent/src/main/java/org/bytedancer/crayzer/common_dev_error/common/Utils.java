@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.common;
+package org.bytedancer.crayzer.common_dev_error.common;
 
 import lombok.extern.slf4j.Slf4j;
 
