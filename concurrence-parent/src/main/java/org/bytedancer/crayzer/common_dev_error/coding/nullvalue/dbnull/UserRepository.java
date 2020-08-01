@@ -28,5 +28,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // MySQL 中使用诸如 =、<、> 这样的算数比较操作符比较 NULL 的结果总是 NULL
     @Query(nativeQuery = true, value = "SELECT * FROM `user` WHERE score IS NULL")
     List<User> right3();
-
 }
