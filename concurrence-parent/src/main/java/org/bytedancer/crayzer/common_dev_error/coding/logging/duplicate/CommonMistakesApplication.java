@@ -16,9 +16,8 @@ public class CommonMistakesApplication {
         // System.setProperty("logging.config", "classpath:org/bytedancer/crayzer/common_dev_error/coding/logging/duplicate/filterwrong.xml");
         System.setProperty("logging.config", "classpath:org/bytedancer/crayzer/common_dev_error/coding/logging/duplicate/filterright.xml");
 
-        // System.setProperty("logging.config", "classpath:org/geekbang/time/commonmistakes/logging/duplicate/multiplelevelsfilter.xml");
-        // System.setProperty("logging.config", "classpath:org/geekbang/time/commonmistakes/logging/duplicate/multiplelevelsfilter.xml");
-        // System.setProperty("logging.config", "classpath:org/geekbang/time/commonmistakes/logging/duplicate/multiplelevelsfilter.xml");
+        /* 自定义 filter */
+        // System.setProperty("logging.config", "classpath:org/bytedancer/crayzer/common_dev_error/coding/logging/duplicate/multiplelevelsfilter.xml");
         SpringApplication.run(CommonMistakesApplication.class, args);
     }
 }

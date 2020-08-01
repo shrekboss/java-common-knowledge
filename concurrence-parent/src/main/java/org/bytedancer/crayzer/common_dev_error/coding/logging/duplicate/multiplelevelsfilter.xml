@@ -10,7 +10,7 @@
 
     <appender name="INFO_FILE" class="ch.qos.logback.core.FileAppender">
         <File>${logDir}/${app.name}_info.log</File>
-        <filter class="org.geekbang.time.commonmistakes.logging.duplicate.MultipleLevelsFilter">
+        <filter class="org.bytedancer.crayzer.common_dev_error.coding.logging.duplicate.MultipleLevelsFilter">
             <levels>INFO|WARN</levels>
         </filter>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
