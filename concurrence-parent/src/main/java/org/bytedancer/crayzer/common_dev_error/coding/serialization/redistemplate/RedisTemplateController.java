@@ -58,6 +58,7 @@ public class RedisTemplateController {
 
 // [14:07:41.315] [http-nio-45678-exec-1] [INFO ] [.t.c.s.demo1.RedisTemplateController:55  ] - userRedisTemplate get {name=zhuye, age=36} class java.util.LinkedHashMap
 // [14:07:41.318] [http-nio-45678-exec-1] [INFO ] [.t.c.s.demo1.RedisTemplateController:56  ] - stringRedisTemplate get {"name":"zhuye","age":36}
+// redis-cli: get zhuye
     @GetMapping("right2")
     public void right2() {
         User user = new User("zhuye", 36);
@@ -71,6 +72,7 @@ public class RedisTemplateController {
 
 // - userRedisTemplate get User(name=zhuye, age=36) class org.bytedancer.crayzer.common_dev_error.coding.serialization.redistemplate.User
 // - stringRedisTemplate get {"@class":"org.bytedancer.crayzer.common_dev_error.coding.serialization.redistemplate.User","name":"zhuye","age":36}
+// redis-cli: get zhuye
     @GetMapping("right3")
     public void right3() {
         User user = new User("zhuye", 36);

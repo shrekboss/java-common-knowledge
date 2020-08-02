@@ -50,7 +50,7 @@ public class Jackson2ObjectMapperBuilder {
 
 ### 修复这个问题，有三种方式：
 - 第一种，同样禁用自定义的 ObjectMapper 的 FAIL_ON_UNKNOWN_PROPERTIES：
-`objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
+`objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);`
 - 第二种，设置自定义类型，加上 @JsonIgnoreProperties 注解，开启 ignoreUnknown 属性，以实现反序列
 化时忽略额外的数据：
 ```java

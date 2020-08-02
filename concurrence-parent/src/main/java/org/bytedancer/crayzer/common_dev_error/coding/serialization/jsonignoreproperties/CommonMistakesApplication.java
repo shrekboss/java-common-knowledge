@@ -1,30 +1,33 @@
 package org.bytedancer.crayzer.common_dev_error.coding.serialization.jsonignoreproperties;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import org.bytedancer.crayzer.common_dev_error.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class CommonMistakesApplication {
 
     public static void main(String[] args) {
-        Utils.loadPropertySource(CommonMistakesApplication.class, "jackson.properties");
+        // 第一种解决方案
+        // Utils.loadPropertySource(CommonMistakesApplication.class, "jackson.properties");
         SpringApplication.run(CommonMistakesApplication.class, args);
     }
 
-   // @Bean
-   // public ObjectMapper objectMapper() {
-   //     ObjectMapper objectMapper = new ObjectMapper();
-   //     objectMapper.configure(SerializationFeature.WRITE_ENUMS_USING_INDEX, true);
-   //     return objectMapper;
-   // }
+   @Bean
+   public ObjectMapper objectMapper() {
+       ObjectMapper objectMapper = new ObjectMapper();
+       objectMapper.configure(SerializationFeature.WRITE_ENUMS_USING_INDEX, true);
+       // 第二种解决方案
+       // objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
+       return objectMapper;
+   }
 
-    @Bean
-    public Jackson2ObjectMapperBuilderCustomizer customizer() {
-        return builder -> builder.featuresToEnable(SerializationFeature.WRITE_ENUMS_USING_INDEX);
-    }
+    // 第三种解决方案
+    // @Bean
+    // public Jackson2ObjectMapperBuilderCustomizer customizer() {
+    //     return builder -> builder.featuresToEnable(SerializationFeature.WRITE_ENUMS_USING_INDEX);
+    // }
 }
 

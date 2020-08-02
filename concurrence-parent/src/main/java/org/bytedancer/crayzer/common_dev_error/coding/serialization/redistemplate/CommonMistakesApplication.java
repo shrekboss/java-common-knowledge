@@ -71,7 +71,9 @@ public class CommonMistakesApplication {
     //     redisTemplate.afterPropertiesSet();
     //     return redisTemplate;
     // }
-    // 或者，直接使用 RedisSerializer.json() 快捷方法，它内部使用的 GenericJackson2JsonRedisSerializer 直接设置了把类型作为属性保存到 Value 中
+
+    // 或者，直接使用 RedisSerializer.json() 快捷方法，它内部使用的 GenericJackson2JsonRedisSerializer
+    // 直接设置了把类型作为属性保存到 Value 中
     // todo /redistemplate/right2 | /redistemplate/right3
     @Bean
     public <T> RedisTemplate<String, T> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
