@@ -118,3 +118,26 @@ private static DateTimeFormatter dateTimeFormatter = new DateTimeFormatterBuilde
 ```
 
 ### 日期时间的计算：calc
+使用 Java 8 的日期时间类型，可以直接进行各种计算，更加简洁和方便：
+对日期时间做计算操作，Java 8 日期时间 API 会比 Calendar 功能强大很多
+
+**使用 Java 8 操作和计算日期时间虽然方便，但计算两个日期差时可能会踩坑：**
+Java 8 中有一个专门的类 Period 定义了日期间隔，通过 Period.between 得到了两个 LocalDate 的差，**返
+回的是两个日期差几年零几月零几天**。**如果希望得知两个日期之间差几天，直接调用 Period 的 getDays() 方
+法得到的只是最后的“零几天”，而不是算总的间隔天数。**
+
+这里有个误区是：
+- 认为 java.util.Date 类似于新 API 中的 LocalDateTime。其实不是，虽然它们都没有时区概念，但 
+java.util.Date 类是因为使用 UTC 表示，所以没有时区概念，**其本质是时间戳**；
+- 而 LocalDateTime，严格上可以认为**是一个日期时间的表示**，而不是一个时间点。
+
+**Date 转换为 LocalDateTime**
+- 通过 Date 的 toInstant 方法得到一个 UTC 时间戳进行转换，并需要提供当前的时区，这样才能把 UTC 时
+间转换为本地日期时间（的表示）
+**LocalDateTime 的时间表示转换为 Date**
+- 需要提供时区，用于指定是哪个时区的时间表示，也就是先通过 atZone 方法把 LocalDateTime 转换为 
+ZonedDateTime，然后才能获得 UTC 时间戳
+`
+Date in = new Date();
+LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
+Date out = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());`
