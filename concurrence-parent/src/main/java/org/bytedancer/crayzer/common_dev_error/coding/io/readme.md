@@ -1,6 +1,8 @@
 ## 文件IO：实现高效正确的文件读写并非易事
 ### 文件读写需要确保字符编码一致：badencodingissue
-- FileReader 是以当前机器的默认字符集来读取文件的，如果希望指定字符集的话，需要直接使用 
+如果需要读写字符流，那么需要确保文件中字符的字符集和字符流的字符集是一致的，否则可能产生乱码。
+
+FileReader 是以当前机器的默认字符集来读取文件的，如果希望指定字符集的话，需要直接使用 
 InputStreamReader 和 FileInputStream。
 
 Files.readAllLines() 这种方式有个问题是，读取超出内存大小的大文件时会出现 OOM
@@ -35,4 +37,41 @@ lsof -p 63937 | grep demo.txt | wc -l
 10007`
 
 ### 注意读写文件要考虑设置缓冲区：filebufferperformance
+StopWatch '': running time = 248583748733 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+244489554362  098%  perByteOperation
+2881307696  001%  bufferOperationWith100Buffer
+974143806  000%  **bufferedStreamByteOperation**
+095795414  000%  **bufferedStreamBufferOperation** √ 最快
+103223408  000%  **largerBufferOperation**
+039724047  000%  fileChannelOperation
 
+结论：
+- 每读取一个字节、每写入一个字节都进行一次 IO 操作，代价太大了
+- 在进行文件 IO 处理的时候，使用合适的缓冲区可以明显提高性能
+- **BufferedInputStream | BufferedOutputStream 内部默认实现了一个 8KB 大小的缓冲区。但是，在使用 
+BufferedInputStream 和 BufferedOutputStream 时，还是建议你再使用一个缓冲进行读写，不要因为它们
+实现了内部缓冲就进行逐字节的操作。**
+- 对于类似的文件复制操作，希望有更高性能，可以使用 FileChannel 的 transfreTo 方法进行流的复制。实
+现 DMA（直接内存访问），也就是数据从磁盘经过总线直接发送到目标文件，无需经过内存和 CPU 进行数
+据中转。
+[transferTo 方法的更多细节](https://developer.ibm.com/articles/j-zerocopy/)
+
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+1424649223  086%  bufferedStreamByteOperation
+117807808  007%  bufferedStreamBufferOperation
+112153174  007%  largerBufferOperation
+第一种方式虽然使用了缓冲流，但逐字节的操作因为方法调用次数实在太多还是慢，耗时 1.4 秒；后面两种
+方式的性能差不多，耗时 110 毫秒左右。虽然第三种方式没有使用缓冲流，但使用了 8KB 大小的缓冲区，和
+缓冲流默认的缓冲区大小相同
+
+在实际代码中**每次需要读取的字节数很可能不是固定的**，有的时候读取几个字节，有的时候读取几百字节，
+这个时候有一个固定大小较大的缓冲，也就是使用 BufferedInputStream 和 BufferedOutputStream 做为后
+备的稳定的二次缓冲，就非常有意义了
+
+**文件操作因为涉及操作系统和文件系统的实现，JDK 并不能确保所有 IO API 在所有平台的逻辑一致性，代码
+迁移到新的操作系统或文件系统时，要重新进行功能测试和性能测试。**
