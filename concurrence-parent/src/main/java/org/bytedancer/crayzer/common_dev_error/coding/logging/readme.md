@@ -160,3 +160,12 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
 到 68 行）。这里需要注意一下 offer 方法和 put 方法的区别，当队列满的时候 offer 方法不阻塞，而 put 
 方法会阻塞；neverBlock 为 true 时，使用 offer 方法。
 ### 使用日志占位符就不需要进行日志级别判断了：placeholder
+SLF4J 的{}占位符语法，到真正记录日志时才会获取实际参数，因此解决了日志数据获取的性能问题?
+- 使用{}占位符语法不能通过延迟参数值获取，来解决日志数据获取的性能问题。
+- 事先判断日志级别。
+- 通过 lambda 表达式进行延迟参数内容获取。但，SLF4J 的 API 还不支持 lambda，因此需要使用 Log4j2 
+日志 API，把 Lombok 的 @Slf4j 注解替换为 @Log4j2 注解，这样就可以提供一个 lambda 表达式作为提供
+参数数据的方法(真正的日志记录还是走的 Logback 框架)
+
+**日志框架提供的参数化日志记录方式不能完全取代日志级别的判断。如果日志量很大，获取日志参数代价也很
+大，就要进行相应日志级别的判断，避免不记录日志也要花费时间获取日志参数的问题。**

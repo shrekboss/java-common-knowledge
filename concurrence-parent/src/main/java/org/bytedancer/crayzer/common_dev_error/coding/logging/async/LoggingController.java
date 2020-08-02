@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Slf4j
-@RequestMapping("logging")
+@RequestMapping("async")
 @RestController
 public class LoggingController {
 
