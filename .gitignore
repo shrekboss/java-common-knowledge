@@ -6,3 +6,5 @@
 /large.txt
 /src.txt
 /dest.txt
+/logs/common-mistakes_error.log
+/logs/common-mistakes_info.log

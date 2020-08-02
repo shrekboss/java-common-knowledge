@@ -2,6 +2,13 @@
 使用 RedisTemplate 来操作 Redis 进行是数据缓存，相比于 Jedis ，除了无需考虑连接池、更方便外，还可
 以与 Spring Cache 等其他组件无缝整合。如果使用 Spring Boot 的话，无需任何配置就可以直接使用。
 
+**内部没关系，也推荐使用枚举，对外是要慎用**
+
+在调试序列化反序列化问题时，捋清楚三点：
+- **是哪个组件在做序列化反序列化**
+- **整个过程有几次序列化反序列化**
+- **以及目前到底是序列化还是反序列化。**
+
 ### 序列化和反序列化需要确保算法一致：redistemplate
 RedisTemplate#afterPropertiesSet，默认情况下 RedisTemplate 针对 Key 和 Value 使用了 JDK 序列化。
 StringRedisTemplate 对于 Key 和 Value，使用的是 String 序列化方式
@@ -52,3 +59,5 @@ Spring Boot 的 MappingJackson2HttpMessageConverter 才行
 【参考 序列化反序列化使用枚举自定义字段的问题.md】
 
 ### 序列化版本号问题：serialversionissue
+实现java.io.Serializable这个接口是为序列化,serialVersionUID 用来表明实现序列化类的不同版本间的兼容性。
+如果你修改了此类, 要修改此值。否则以前用老版本的类序列化的类恢复时会出错。
