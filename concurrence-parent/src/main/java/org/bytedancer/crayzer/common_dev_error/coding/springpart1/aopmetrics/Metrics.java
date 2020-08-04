@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.aopmetrics;
+package org.bytedancer.crayzer.common_dev_error.coding.springpart1.aopmetrics;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

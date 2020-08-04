@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.beansingletonandorder;
+package org.bytedancer.crayzer.common_dev_error.coding.springpart1.beansingletonandorder;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 
 // 单例的 Controller 注入的 Service 也是一次性创建的，即使 Service 本身标识了 prototype 的范围也没用
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class SayBye extends SayService {
+public class SayHello extends SayService {
 
     @Override
     public void say() {
         super.say();
-        log.info("bye");
+        log.info("hello");
     }
 }

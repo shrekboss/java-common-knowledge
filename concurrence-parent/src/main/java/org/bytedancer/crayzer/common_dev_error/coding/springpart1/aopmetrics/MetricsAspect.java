@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.aopmetrics;
+package org.bytedancer.crayzer.common_dev_error.coding.springpart1.aopmetrics;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -53,7 +53,7 @@ public class MetricsAspect {
     public void controllerBean() {
     }
 
-    @Pointcut("within(@org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.aopmetrics.Metrics *)")
+    @Pointcut("within(@org.bytedancer.crayzer.common_dev_error.coding.springpart1.aopmetrics.Metrics *)")
     public void withMetricsAnnotation() {
     }
 

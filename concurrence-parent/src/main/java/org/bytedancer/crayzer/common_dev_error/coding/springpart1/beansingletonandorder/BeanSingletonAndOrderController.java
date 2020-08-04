@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.beansingletonandorder;
+package org.bytedancer.crayzer.common_dev_error.coding.springpart1.beansingletonandorder;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

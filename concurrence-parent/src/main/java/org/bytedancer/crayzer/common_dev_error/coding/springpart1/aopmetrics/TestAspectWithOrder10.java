@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.aopmetrics;
+package org.bytedancer.crayzer.common_dev_error.coding.springpart1.aopmetrics;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -16,17 +16,17 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class TestAspectWithOrder10 {
 
-    @Before("execution(* org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.aopmetrics.TestController.*(..))")
+    @Before("execution(* org.bytedancer.crayzer.common_dev_error.coding.springpart1.aopmetrics.TestController.*(..))")
     public void before(JoinPoint joinPoint) throws Throwable {
         log.info("TestAspectWithOrder10 @Before");
     }
 
-    @After("execution(* org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.aopmetrics.TestController.*(..))")
+    @After("execution(* org.bytedancer.crayzer.common_dev_error.coding.springpart1.aopmetrics.TestController.*(..))")
     public void after(JoinPoint joinPoint) throws Throwable {
         log.info("TestAspectWithOrder10 @After");
     }
 
-    @Around("execution(* org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.aopmetrics.TestController.*(..))")
+    @Around("execution(* org.bytedancer.crayzer.common_dev_error.coding.springpart1.aopmetrics.TestController.*(..))")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         log.info("TestAspectWithOrder10 @Around before");
         Object o = pjp.proceed();

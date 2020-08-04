@@ -1,12 +1,12 @@
-package org.bytedancer.crayzer.common_dev_error.coding.srpingpart1.beansingletonandorder;
+package org.bytedancer.crayzer.common_dev_error.coding.springpart1.beansingletonandorder;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TestA {
+public class TestB {
     @Autowired
     @Getter
-    private TestB testB;
+    private TestA testA;
 }
