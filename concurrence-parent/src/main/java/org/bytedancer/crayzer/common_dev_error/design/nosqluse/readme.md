@@ -13,8 +13,8 @@ Redis 薄弱的地方是，不擅长做 Key 的搜索。对 MySQL，可以使用
 - Redis 的 Keys 命令是 O(n) 时间复杂度。如果数据库中 Key 的数量很多，就会非常慢。
 - Redis 是单线程的，对于慢的命令如果有并发，串行执行就会非常耗时。
 
-**结论：在 QPS 方面，MySQL 的 QPS 达到了 Redis 的 157 倍；在延迟方面，MySQL 的延迟只有 Redis 的
-十分之一。**
+结论：在 **QPS** 方面，MySQL 的 QPS 达到了 Redis 的 157 倍；在延迟方面，MySQL 的**延迟**只有 Redis 的
+十分之一。
 
 一般而言，使用 Redis 都是针对某一个 Key 来使用，而不能在业务代码中使用 Keys 命令从 Redis 中“搜索数
 据”，因为这不是 Redis 的擅长。对于 Key 的搜索，可以先通过关系型数据库进行，然后再从 Redis 存取数据
