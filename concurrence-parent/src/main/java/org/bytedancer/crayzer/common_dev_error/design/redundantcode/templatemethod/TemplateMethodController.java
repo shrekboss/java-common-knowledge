@@ -1,10 +1,10 @@
-package org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod;
+package org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.right.AbstractCart;
-import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.wrong.InternalUserCart;
-import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.wrong.NormalUserCart;
-import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.wrong.VipUserCart;
+import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.right.AbstractCart;
+import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.wrong.InternalUserCart;
+import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.wrong.NormalUserCart;
+import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.wrong.VipUserCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;

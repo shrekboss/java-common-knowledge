@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.reflection.right;
+package org.bytedancer.crayzer.common_dev_error.design.redundantcode.reflection.right;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;

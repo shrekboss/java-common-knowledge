@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.beancopy;
+package org.bytedancer.crayzer.common_dev_error.design.redundantcode.beancopy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
