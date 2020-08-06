@@ -1,8 +1,8 @@
-package org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.wrong;
+package org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.wrong;
 
-import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.Cart;
-import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.Db;
-import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.Item;
+import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.Cart;
+import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.Db;
+import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.Item;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

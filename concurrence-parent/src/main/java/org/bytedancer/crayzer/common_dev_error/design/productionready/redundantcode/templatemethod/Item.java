@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod;
+package org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod;
 
 import lombok.Data;
 

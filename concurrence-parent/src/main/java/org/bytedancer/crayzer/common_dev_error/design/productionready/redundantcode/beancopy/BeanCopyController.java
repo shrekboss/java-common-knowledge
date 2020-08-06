@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.design.redundantcode.beancopy;
+package org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.beancopy;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

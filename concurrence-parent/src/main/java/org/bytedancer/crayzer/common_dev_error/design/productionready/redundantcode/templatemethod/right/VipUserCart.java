@@ -1,7 +1,7 @@
-package org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.right;
+package org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.right;
 
-import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.Db;
-import org.bytedancer.crayzer.common_dev_error.design.redundantcode.templatemethod.Item;
+import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.Db;
+import org.bytedancer.crayzer.common_dev_error.design.productionready.redundantcode.templatemethod.Item;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
