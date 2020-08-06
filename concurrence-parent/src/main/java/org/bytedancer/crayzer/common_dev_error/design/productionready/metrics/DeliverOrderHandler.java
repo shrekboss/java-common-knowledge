@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Slf4j
 @RequestMapping("deliver")
 public class DeliverOrderHandler {
-    //配送服务运行状态
+    //配送服务运行状态(开关设置)
     private volatile boolean deliverStatus = true;
     private AtomicLong deliverCounter = new AtomicLong();
     //通过一个外部接口来改变配送状态模拟配送服务停工

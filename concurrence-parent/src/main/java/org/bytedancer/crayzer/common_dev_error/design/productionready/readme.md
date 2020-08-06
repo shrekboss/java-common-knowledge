@@ -43,18 +43,4 @@ org.springframework.boot.Endpoint 中找到 Info 这个 MBean，然后执行 inf
 `http://localhost:45679/admin/jolokia/exec/org.springframework.boot:type=Endpoint,name=Info/info`
 
 ### 指标Metrics是快速定位问题的“金钥匙”：metrics
-使用 Micrometer 框架实现指标的收集，它也是 Spring Boot Actuator 选用的指标框架。它实现了各种指标
-的抽象，常用的有三种：
-- gauge（红色），它反映的是指标当前的值，是多少就是多少，不能累计，比如本例中的下单总数量指标，
-又比如游戏的在线人数、JVM 当前线程数都可以认为是 gauge。
-- counter（绿色），每次调用一次方法值增加 1，是可以累计的，比如本例中的下单请求指标。举一个例子，
-如果 5 秒内调用了 10 次方法，Micrometer 也是每隔 5 秒把指标发送给后端存储系统一次，那么它可以只发
-送一次值，其值为 10。
-- timer（蓝色），类似 counter，只不过除了记录次数，还记录耗时，比如本例中的下单成功和下单失败两个
-指标。
-```
-<dependency>
-    <groupId>io.micrometer</groupId>
-    <artifactId>micrometer-registry-influx</artifactId>
-</dependency>
-```
+【参考 外卖订单的下单和配送流程.md】
