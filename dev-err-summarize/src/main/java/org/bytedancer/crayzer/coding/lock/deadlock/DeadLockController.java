@@ -31,19 +31,23 @@ public class DeadLockController {
     }
 
     private boolean createOrder(List<Item> order) {
+        //存放所有获得的锁
         List<ReentrantLock> locks = new ArrayList<>();
 
         for (Item item : order) {
             try {
+                //获得锁10秒超时
                 if (item.lock.tryLock(10, TimeUnit.SECONDS)) {
                     locks.add(item.lock);
                 } else {
+                    // 如果有无法获得锁的情况则解锁之前获得的所有锁，返回 false 下单失败
                     locks.forEach(ReentrantLock::unlock);
                     return false;
                 }
             } catch (InterruptedException e) {
             }
         }
+        //锁全部拿到之后执行扣减库存业务逻辑
         try {
             order.forEach(item -> item.remaining--);
         } finally {
@@ -52,6 +56,9 @@ public class DeadLockController {
         return true;
     }
 
+    // 假设一个购物车中的商品是 item1 和 item2，另一个购物车中的商品是 item2 和 item1，一个线程先
+    // 获取到了 item1 的锁，同时另一个线程获取到了 item2 的锁，然后两个线程接下来要分别获取 item2
+    // 和 item1 的锁，这个时候锁已经被对方获取了，只能相互等待一直到 10 秒超时。
     private List<Item> createCart() {
         return IntStream.rangeClosed(1, 3)
                 .mapToObj(i -> "item" + ThreadLocalRandom.current().nextInt(items.size()))
@@ -95,12 +102,13 @@ public class DeadLockController {
         return success;
     }
 
+
     @Data
     @RequiredArgsConstructor
     static class Item {
-        final String name;
-        int remaining = 1000;
-        @ToString.Exclude
+        final String name; //商品名
+        int remaining = 1000; //库存剩余
+        @ToString.Exclude //ToString不包含这个字段
         ReentrantLock lock = new ReentrantLock();
     }
 }

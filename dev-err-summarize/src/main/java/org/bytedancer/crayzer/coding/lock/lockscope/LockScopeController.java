@@ -43,6 +43,9 @@ public class LockScopeController {
         return "OK";
     }
 
+    // 897415623
+    // 123456789
+    // 36810794125
     public static void main(String[] args) {
         IntStream.range(1, 10).parallel().forEach(i -> System.out.print(i));
         System.out.println();

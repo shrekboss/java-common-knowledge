@@ -17,6 +17,7 @@ public class LockGranularityController {
 
     private List<Integer> data = new ArrayList<>();
 
+    //不涉及共享资源的慢方法
     private void slow() {
         try {
             TimeUnit.MILLISECONDS.sleep(10);
@@ -24,7 +25,7 @@ public class LockGranularityController {
         }
     }
 
-    //错误的加锁方法
+    // wrk -c 2 -d 10s http://localhost:8080/deadlock/wrong
     @GetMapping("wrong")
     public int wrong() {
         long begin = System.currentTimeMillis();
@@ -39,9 +40,7 @@ public class LockGranularityController {
         return data.size();
     }
 
-    /**
-     * wrk -c 2 -d 10s http://localhost:8080/deadlock/right
-     * 正确的加锁方法 */
+    // wrk -c 2 -d 10s http://localhost:8080/deadlock/right
     @GetMapping("right")
     public int right() {
         long begin = System.currentTimeMillis();
