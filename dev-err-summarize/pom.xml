@@ -205,7 +205,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.bytedancer.crayzer.devmisuse.troubleshootingtools.jdktool.CommonMistakesApplication
+                    <mainClass>org.bytedancer.crayzer.troubleshootingtools.jdktool.CommonMistakesApplication
                     </mainClass>
                 </configuration>
             </plugin>

@@ -1,5 +1,6 @@
 package org.bytedancer.crayzer.devmisuse.design.productionready.info;
 
+import org.bytedancer.crayzer.design.productionready.info.ThreadPoolProvider;
 import org.springframework.boot.actuate.info.Info;
 import org.springframework.boot.actuate.info.InfoContributor;
 import org.springframework.stereotype.Component;

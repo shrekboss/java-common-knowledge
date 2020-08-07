@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.serialization.enumusedinapi;
+package org.bytedancer.crayzer.coding.serialization.enumusedinapi;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
