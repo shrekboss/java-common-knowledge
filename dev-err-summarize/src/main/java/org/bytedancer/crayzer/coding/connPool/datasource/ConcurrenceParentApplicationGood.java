@@ -1,6 +1,6 @@
-package org.bytedancer.crayzer.devmisuse.coding.connPool.datasource;
+package org.bytedancer.crayzer.coding.connPool.datasource;
 
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.nosqluse.esvsmyql;
+package org.bytedancer.crayzer.design.nosqluse.esvsmyql;
 
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.update.UpdateRequest;

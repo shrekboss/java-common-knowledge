@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.clientdata.trustclientuserid;
+package org.bytedancer.crayzer.safety.clientdata.trustclientuserid;
 
 import java.lang.annotation.*;
 

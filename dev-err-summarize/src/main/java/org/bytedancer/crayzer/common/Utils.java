@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.common;
+package org.bytedancer.crayzer.common;
 
 import lombok.extern.slf4j.Slf4j;
 

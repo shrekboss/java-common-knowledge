@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.lock;
+package org.bytedancer.crayzer.coding.lock;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

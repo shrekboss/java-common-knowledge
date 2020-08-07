@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.redundantcode.templatemethod;
+package org.bytedancer.crayzer.design.redundantcode.templatemethod;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

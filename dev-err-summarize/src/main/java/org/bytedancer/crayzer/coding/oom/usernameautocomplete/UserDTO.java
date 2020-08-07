@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.oom.usernameautocomplete;
+package org.bytedancer.crayzer.coding.oom.usernameautocomplete;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

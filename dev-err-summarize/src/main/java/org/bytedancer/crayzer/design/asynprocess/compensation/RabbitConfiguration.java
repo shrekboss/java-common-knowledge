@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.asynprocess.compensation;
+package org.bytedancer.crayzer.design.asynprocess.compensation;
 
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;

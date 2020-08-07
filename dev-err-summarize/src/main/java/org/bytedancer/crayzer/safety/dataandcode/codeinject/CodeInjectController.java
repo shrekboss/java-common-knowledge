@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.dataandcode.codeinject;
+package org.bytedancer.crayzer.safety.dataandcode.codeinject;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

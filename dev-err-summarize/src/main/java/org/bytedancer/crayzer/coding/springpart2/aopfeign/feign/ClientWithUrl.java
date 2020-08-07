@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart2.aopfeign.feign;
+package org.bytedancer.crayzer.coding.springpart2.aopfeign.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.clientdata.trustclientparameter;
+package org.bytedancer.crayzer.safety.clientdata.trustclientparameter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

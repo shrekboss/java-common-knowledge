@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.sensitivedata.storeidcard;
+package org.bytedancer.crayzer.safety.sensitivedata.storeidcard;
 
 import lombok.Data;
 

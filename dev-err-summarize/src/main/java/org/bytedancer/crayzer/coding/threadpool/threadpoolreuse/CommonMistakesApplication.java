@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.threadpool.threadpoolreuse;
+package org.bytedancer.crayzer.coding.threadpool.threadpoolreuse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

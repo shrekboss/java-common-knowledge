@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.sensitivedata.storepassword;
+package org.bytedancer.crayzer.safety.sensitivedata.storepassword;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

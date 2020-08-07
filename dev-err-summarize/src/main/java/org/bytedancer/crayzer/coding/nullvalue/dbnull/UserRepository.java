@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.nullvalue.dbnull;
+package org.bytedancer.crayzer.coding.nullvalue.dbnull;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

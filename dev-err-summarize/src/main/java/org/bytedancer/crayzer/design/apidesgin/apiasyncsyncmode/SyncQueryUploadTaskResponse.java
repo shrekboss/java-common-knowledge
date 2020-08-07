@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.apiasyncsyncmode;
+package org.bytedancer.crayzer.design.apidesgin.apiasyncsyncmode;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

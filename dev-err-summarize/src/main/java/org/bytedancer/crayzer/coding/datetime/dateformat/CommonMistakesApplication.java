@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.datetime.dateformat;
+package org.bytedancer.crayzer.coding.datetime.dateformat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

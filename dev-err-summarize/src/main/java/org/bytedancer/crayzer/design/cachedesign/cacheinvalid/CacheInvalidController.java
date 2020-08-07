@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.cachedesign.cacheinvalid;
+package org.bytedancer.crayzer.design.cachedesign.cacheinvalid;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

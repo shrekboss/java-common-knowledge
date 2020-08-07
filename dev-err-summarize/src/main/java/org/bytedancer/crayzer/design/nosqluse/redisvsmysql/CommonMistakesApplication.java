@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.nosqluse.redisvsmysql;
+package org.bytedancer.crayzer.design.nosqluse.redisvsmysql;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

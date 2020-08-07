@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.nullvalue.pojonull;
+package org.bytedancer.crayzer.coding.nullvalue.pojonull;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.exception.handleexception;
+package org.bytedancer.crayzer.coding.exception.handleexception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

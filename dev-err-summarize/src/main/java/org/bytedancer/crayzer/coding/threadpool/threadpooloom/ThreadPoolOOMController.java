@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.threadpool.threadpooloom;
+package org.bytedancer.crayzer.coding.threadpool.threadpooloom;
 
 import jodd.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.bytedancer.crayzer.devmisuse.coding.threadpool.PrintThreadPoolStats.printStats;
+import static org.bytedancer.crayzer.coding.threadpool.PrintThreadPoolStats.printStats;
 
 @RestController
 @RequestMapping("threadpooloom")

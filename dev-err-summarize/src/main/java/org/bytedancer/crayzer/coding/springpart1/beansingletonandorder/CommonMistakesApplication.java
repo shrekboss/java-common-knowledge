@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart1.beansingletonandorder;
+package org.bytedancer.crayzer.coding.springpart1.beansingletonandorder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.productionready.info;
+package org.bytedancer.crayzer.design.productionready.info;
 
 import lombok.extern.slf4j.Slf4j;
 import org.bytedancer.crayzer.design.productionready.info.ThreadPoolProvider;

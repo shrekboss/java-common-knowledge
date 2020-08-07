@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart2.aopfeign;
+package org.bytedancer.crayzer.coding.springpart2.aopfeign;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;

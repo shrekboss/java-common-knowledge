@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.headerapiversion;
+package org.bytedancer.crayzer.design.apidesgin.headerapiversion;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

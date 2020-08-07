@@ -1,8 +1,8 @@
-package org.bytedancer.crayzer.devmisuse.design.redundantcode.reflection;
+package org.bytedancer.crayzer.design.redundantcode.reflection;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bytedancer.crayzer.devmisuse.design.redundantcode.reflection.right.BetterBankService;
-import org.bytedancer.crayzer.devmisuse.design.redundantcode.reflection.wrong.BankService;
+import org.bytedancer.crayzer.design.redundantcode.reflection.right.BetterBankService;
+import org.bytedancer.crayzer.design.redundantcode.reflection.wrong.BankService;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;

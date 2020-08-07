@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.httpinvoke.feignpermethodtimeout;
+package org.bytedancer.crayzer.coding.httpinvoke.feignpermethodtimeout;
 
 import feign.Request;
 import org.springframework.cloud.openfeign.FeignClient;

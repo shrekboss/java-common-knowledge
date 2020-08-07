@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.sensitivedata.storepassword;
+package org.bytedancer.crayzer.safety.sensitivedata.storepassword;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

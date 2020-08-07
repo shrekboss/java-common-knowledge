@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.redundantcode.beancopy;
+package org.bytedancer.crayzer.design.redundantcode.beancopy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

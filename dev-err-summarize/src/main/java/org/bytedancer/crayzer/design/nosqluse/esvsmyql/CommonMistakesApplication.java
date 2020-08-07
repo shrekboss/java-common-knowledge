@@ -1,10 +1,10 @@
-package org.bytedancer.crayzer.devmisuse.design.nosqluse.esvsmyql;
+package org.bytedancer.crayzer.design.nosqluse.esvsmyql;
 
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import lombok.extern.slf4j.Slf4j;
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

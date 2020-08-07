@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.connPool.twotimeoutconfig;
+package org.bytedancer.crayzer.coding.connPool.twotimeoutconfig;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

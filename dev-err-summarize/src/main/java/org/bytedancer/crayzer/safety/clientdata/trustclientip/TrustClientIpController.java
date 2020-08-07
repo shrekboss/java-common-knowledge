@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.clientdata.trustclientip;
+package org.bytedancer.crayzer.safety.clientdata.trustclientip;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.numbercalculations.dangerousdouble;
+package org.bytedancer.crayzer.coding.numbercalculations.dangerousdouble;
 
 import lombok.extern.slf4j.Slf4j;
 

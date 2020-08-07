@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.concurrentTools.multiasynctasks;
+package org.bytedancer.crayzer.coding.concurrentTools.multiasynctasks;
 
 import lombok.extern.slf4j.Slf4j;
 

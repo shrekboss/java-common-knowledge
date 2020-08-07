@@ -2,7 +2,6 @@ package org.bytedancer.crayzer.design.productionready.metrics;
 
 import io.micrometer.core.instrument.Metrics;
 import lombok.extern.slf4j.Slf4j;
-import org.bytedancer.crayzer.devmisuse.design.productionready.metrics.Order;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

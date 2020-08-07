@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.redundantcode.reflection.wrong;
+package org.bytedancer.crayzer.design.redundantcode.reflection.wrong;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.client.fluent.Request;

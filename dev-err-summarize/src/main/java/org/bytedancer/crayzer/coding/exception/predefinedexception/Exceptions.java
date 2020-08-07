@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.exception.predefinedexception;
+package org.bytedancer.crayzer.coding.exception.predefinedexception;
 
 public class Exceptions {
 

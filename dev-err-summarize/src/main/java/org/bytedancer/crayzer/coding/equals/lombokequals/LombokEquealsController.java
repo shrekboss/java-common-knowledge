@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.lombokequals;
+package org.bytedancer.crayzer.coding.equals.lombokequals;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

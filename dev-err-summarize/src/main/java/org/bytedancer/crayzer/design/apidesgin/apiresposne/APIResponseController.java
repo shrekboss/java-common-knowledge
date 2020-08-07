@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.apiresposne;
+package org.bytedancer.crayzer.design.apidesgin.apiresposne;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

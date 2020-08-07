@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.nullvalue.avoidnullpointerexception;
+package org.bytedancer.crayzer.coding.nullvalue.avoidnullpointerexception;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

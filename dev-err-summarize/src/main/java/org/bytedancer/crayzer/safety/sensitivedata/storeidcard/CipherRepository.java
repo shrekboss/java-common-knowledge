@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.sensitivedata.storeidcard;
+package org.bytedancer.crayzer.safety.sensitivedata.storeidcard;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

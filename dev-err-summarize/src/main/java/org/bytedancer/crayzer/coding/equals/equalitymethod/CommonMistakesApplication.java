@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.equalitymethod;
+package org.bytedancer.crayzer.coding.equals.equalitymethod;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

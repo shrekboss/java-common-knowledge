@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.cachedesign.cachepenetration;
+package org.bytedancer.crayzer.design.cachedesign.cachepenetration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

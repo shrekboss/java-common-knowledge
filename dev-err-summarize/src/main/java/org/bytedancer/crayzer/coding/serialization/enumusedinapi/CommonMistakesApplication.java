@@ -2,7 +2,7 @@ package org.bytedancer.crayzer.coding.serialization.enumusedinapi;
 
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;

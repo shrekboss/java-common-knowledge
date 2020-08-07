@@ -70,8 +70,8 @@ public class RedisTemplateController {
         log.info("stringRedisTemplate get {}", stringRedisTemplate.opsForValue().get(user.getName()));
     }
 
-// - userRedisTemplate get User(name=zhuye, age=36) class org.bytedancer.crayzer.devmisuse.coding.serialization.redistemplate.User
-// - stringRedisTemplate get {"@class":"org.bytedancer.crayzer.devmisuse.coding.serialization.redistemplate.User","name":"zhuye","age":36}
+// - userRedisTemplate get User(name=zhuye, age=36) class org.bytedancer.crayzer.coding.serialization.redistemplate.User
+// - stringRedisTemplate get {"@class":"org.bytedancer.crayzer.coding.serialization.redistemplate.User","name":"zhuye","age":36}
 // redis-cli: get zhuye
     @GetMapping("right3")
     public void right3() {

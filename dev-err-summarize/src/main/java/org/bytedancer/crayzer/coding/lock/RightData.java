@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.lock;
+package org.bytedancer.crayzer.coding.lock;
 
 
 public class RightData {

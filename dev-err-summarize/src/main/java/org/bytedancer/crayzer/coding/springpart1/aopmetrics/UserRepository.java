@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart1.aopmetrics;
+package org.bytedancer.crayzer.coding.springpart1.aopmetrics;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

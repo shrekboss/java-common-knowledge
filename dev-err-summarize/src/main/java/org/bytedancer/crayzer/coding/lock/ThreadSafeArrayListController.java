@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.lock;
+package org.bytedancer.crayzer.coding.lock;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

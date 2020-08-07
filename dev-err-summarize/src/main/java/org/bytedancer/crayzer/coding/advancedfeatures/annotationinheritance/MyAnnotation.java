@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.advancedfeatures.annotationinheritance;
+package org.bytedancer.crayzer.coding.advancedfeatures.annotationinheritance;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

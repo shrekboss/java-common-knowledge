@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.advancedfeatures.innerclass;
+package org.bytedancer.crayzer.coding.advancedfeatures.innerclass;
 
 public class InnerClassApplication {
 

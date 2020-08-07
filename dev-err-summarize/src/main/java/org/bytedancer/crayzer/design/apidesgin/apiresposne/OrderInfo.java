@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.apiresposne;
+package org.bytedancer.crayzer.design.apidesgin.apiresposne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

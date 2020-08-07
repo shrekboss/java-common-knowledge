@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.apiresposne;
+package org.bytedancer.crayzer.design.apidesgin.apiresposne;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

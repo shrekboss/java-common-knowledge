@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.cachedesign.cachepenetration;
+package org.bytedancer.crayzer.design.cachedesign.cachepenetration;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;

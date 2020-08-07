@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.differentclassloaderequals;
+package org.bytedancer.crayzer.coding.equals.differentclassloaderequals;
 
 import lombok.Data;
 

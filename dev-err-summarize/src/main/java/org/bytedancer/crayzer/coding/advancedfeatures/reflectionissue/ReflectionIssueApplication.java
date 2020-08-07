@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.advancedfeatures.reflectionissue;
+package org.bytedancer.crayzer.coding.advancedfeatures.reflectionissue;
 
 import lombok.extern.slf4j.Slf4j;
 

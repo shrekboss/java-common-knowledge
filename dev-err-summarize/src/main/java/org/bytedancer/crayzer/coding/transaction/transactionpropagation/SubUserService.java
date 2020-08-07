@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.transaction.transactionpropagation;
+package org.bytedancer.crayzer.coding.transaction.transactionpropagation;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

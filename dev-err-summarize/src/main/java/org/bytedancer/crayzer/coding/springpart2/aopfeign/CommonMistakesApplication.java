@@ -1,6 +1,6 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart2.aopfeign;
+package org.bytedancer.crayzer.coding.springpart2.aopfeign;
 
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

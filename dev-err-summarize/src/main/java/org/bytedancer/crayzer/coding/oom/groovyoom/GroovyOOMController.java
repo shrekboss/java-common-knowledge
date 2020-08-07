@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.oom.groovyoom;
+package org.bytedancer.crayzer.coding.oom.groovyoom;
 
 import groovy.lang.GroovyShell;
 import groovy.lang.Script;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.headerapiversion;
+package org.bytedancer.crayzer.design.apidesgin.headerapiversion;
 
 import lombok.Getter;
 import org.springframework.web.servlet.mvc.condition.RequestCondition;

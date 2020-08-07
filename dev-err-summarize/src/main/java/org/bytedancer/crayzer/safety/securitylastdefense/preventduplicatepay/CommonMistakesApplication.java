@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.securitylastdefense.preventduplicatepay;
+package org.bytedancer.crayzer.safety.securitylastdefense.preventduplicatepay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

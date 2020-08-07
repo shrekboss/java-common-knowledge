@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.connPool.httpclient;
+package org.bytedancer.crayzer.coding.connPool.httpclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

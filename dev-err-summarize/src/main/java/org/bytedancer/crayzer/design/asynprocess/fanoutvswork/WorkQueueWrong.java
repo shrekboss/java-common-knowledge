@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.asynprocess.fanoutvswork;
+package org.bytedancer.crayzer.design.asynprocess.fanoutvswork;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;

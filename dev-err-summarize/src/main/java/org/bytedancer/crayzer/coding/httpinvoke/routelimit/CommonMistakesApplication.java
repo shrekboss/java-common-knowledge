@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.httpinvoke.routelimit;
+package org.bytedancer.crayzer.coding.httpinvoke.routelimit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

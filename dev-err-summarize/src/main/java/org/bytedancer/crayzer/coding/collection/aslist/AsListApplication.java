@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.collection.aslist;
+package org.bytedancer.crayzer.coding.collection.aslist;
 
 import lombok.extern.slf4j.Slf4j;
 

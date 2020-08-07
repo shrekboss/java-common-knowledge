@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.intandstringequal;
+package org.bytedancer.crayzer.coding.equals.intandstringequal;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

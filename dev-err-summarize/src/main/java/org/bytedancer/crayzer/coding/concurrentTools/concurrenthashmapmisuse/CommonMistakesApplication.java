@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.concurrentTools.concurrenthashmapmisuse;
+package org.bytedancer.crayzer.coding.concurrentTools.concurrenthashmapmisuse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

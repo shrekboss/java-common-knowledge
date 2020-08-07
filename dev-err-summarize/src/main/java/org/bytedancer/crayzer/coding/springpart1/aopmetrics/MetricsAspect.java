@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart1.aopmetrics;
+package org.bytedancer.crayzer.coding.springpart1.aopmetrics;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +44,7 @@ public class MetricsAspect {
     }
 
     //@annotation 指示器实现对标记了Metrics注解的方法进行匹配
-    // @Pointcut("@annotation(org.bytedancer.crayzer.devmisuse.coding.srpingpart1.aopmetrics.Metrics)")
+    // @Pointcut("@annotation(org.bytedancer.crayzer.coding.srpingpart1.aopmetrics.Metrics)")
     // public void withMetricsAnnotation() {
     // }
 
@@ -53,7 +53,7 @@ public class MetricsAspect {
     public void controllerBean() {
     }
 
-    @Pointcut("within(@org.bytedancer.crayzer.devmisuse.coding.springpart1.aopmetrics.Metrics *)")
+    @Pointcut("within(@org.bytedancer.crayzer.coding.springpart1.aopmetrics.Metrics *)")
     public void withMetricsAnnotation() {
     }
 

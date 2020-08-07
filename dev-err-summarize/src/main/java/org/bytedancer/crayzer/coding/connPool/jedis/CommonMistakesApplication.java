@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.connPool.jedis;
+package org.bytedancer.crayzer.coding.connPool.jedis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.httpinvoke.feignandribbontimeout;
+package org.bytedancer.crayzer.coding.httpinvoke.feignandribbontimeout;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

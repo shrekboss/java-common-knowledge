@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.apiasyncsyncmode;
+package org.bytedancer.crayzer.design.apidesgin.apiasyncsyncmode;
 
 import org.springframework.stereotype.Service;
 

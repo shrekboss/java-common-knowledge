@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.sensitivedata.rsavsaes;
+package org.bytedancer.crayzer.safety.sensitivedata.rsavsaes;
 
 import org.junit.Assert;
 import org.springframework.util.StopWatch;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart2.propertysource;
+package org.bytedancer.crayzer.coding.springpart2.propertysource;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

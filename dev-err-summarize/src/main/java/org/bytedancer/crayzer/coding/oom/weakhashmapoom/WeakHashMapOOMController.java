@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.oom.weakhashmapoom;
+package org.bytedancer.crayzer.coding.oom.weakhashmapoom;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

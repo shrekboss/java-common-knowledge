@@ -1,8 +1,8 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart2.aopfeign;
+package org.bytedancer.crayzer.coding.springpart2.aopfeign;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bytedancer.crayzer.devmisuse.coding.springpart2.aopfeign.feign.Client;
-import org.bytedancer.crayzer.devmisuse.coding.springpart2.aopfeign.feign.ClientWithUrl;
+import org.bytedancer.crayzer.coding.springpart2.aopfeign.feign.Client;
+import org.bytedancer.crayzer.coding.springpart2.aopfeign.feign.ClientWithUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;

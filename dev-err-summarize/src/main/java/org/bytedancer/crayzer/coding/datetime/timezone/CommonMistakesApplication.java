@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.datetime.timezone;
+package org.bytedancer.crayzer.coding.datetime.timezone;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

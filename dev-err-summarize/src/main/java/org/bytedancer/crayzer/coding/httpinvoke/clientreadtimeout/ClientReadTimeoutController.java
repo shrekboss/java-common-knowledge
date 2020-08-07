@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.httpinvoke.clientreadtimeout;
+package org.bytedancer.crayzer.coding.httpinvoke.clientreadtimeout;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.fluent.Request;

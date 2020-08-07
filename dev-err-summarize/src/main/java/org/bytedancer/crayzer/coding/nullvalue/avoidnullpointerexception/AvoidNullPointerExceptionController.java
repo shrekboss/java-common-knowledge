@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.nullvalue.avoidnullpointerexception;
+package org.bytedancer.crayzer.coding.nullvalue.avoidnullpointerexception;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -33,8 +33,8 @@ public class AvoidNullPointerExceptionController {
     }
 
     // arthas 1111 1101
-    // watch org.bytedancer.crayzer.devmisuse.coding.nullvalue.avoidnullpointerexception.AvoidNullPointerExceptionController wrongMethod params
-    // stack org.bytedancer.crayzer.devmisuse.coding.nullvalue.avoidnullpointerexception.AvoidNullPointerExceptionController
+    // watch org.bytedancer.crayzer.coding.nullvalue.avoidnullpointerexception.AvoidNullPointerExceptionController wrongMethod params
+    // stack org.bytedancer.crayzer.coding.nullvalue.avoidnullpointerexception.AvoidNullPointerExceptionController
     private List<String> wrongMethod(FooService fooService, Integer i, String s, String t) {
         log.info("result {} {} {} {}",
                 i + 1, // Optional.ofNullable(i).orElse(0) + 1,
@@ -47,7 +47,7 @@ public class AvoidNullPointerExceptionController {
     }
 
     // 0000 为什么没有返回 "OK" 返回的是 0
-    // watch org.bytedancer.crayzer.devmisuse.coding.nullvalue.avoidnullpointerexception.AvoidNullPointerExceptionController right params -x 2
+    // watch org.bytedancer.crayzer.coding.nullvalue.avoidnullpointerexception.AvoidNullPointerExceptionController right params -x 2
     private List<String> rightMethod(FooService fooService, Integer i, String s, String t) {
         log.info("result {} {} {} {}",
                 Optional.ofNullable(i).orElse(0) + 1,

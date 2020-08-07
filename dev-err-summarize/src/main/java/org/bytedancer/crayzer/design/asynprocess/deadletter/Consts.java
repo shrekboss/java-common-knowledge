@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.asynprocess.deadletter;
+package org.bytedancer.crayzer.design.asynprocess.deadletter;
 
 public class Consts {
     public static final String QUEUE = "test";

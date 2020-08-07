@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.concurrentTools.copyonwritelistmisuse;
+package org.bytedancer.crayzer.coding.concurrentTools.copyonwritelistmisuse;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;

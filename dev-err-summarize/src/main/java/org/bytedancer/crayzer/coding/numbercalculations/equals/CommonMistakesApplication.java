@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.numbercalculations.equals;
+package org.bytedancer.crayzer.coding.numbercalculations.equals;
 
 import java.math.BigDecimal;
 import java.util.HashSet;

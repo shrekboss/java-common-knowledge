@@ -1,6 +1,6 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.apiresposne;
+package org.bytedancer.crayzer.design.apidesgin.apiresposne;
 
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

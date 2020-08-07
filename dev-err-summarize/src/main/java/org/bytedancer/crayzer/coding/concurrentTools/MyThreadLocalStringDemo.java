@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.concurrentTools;
+package org.bytedancer.crayzer.coding.concurrentTools;
 
 import java.util.concurrent.CountDownLatch;
 

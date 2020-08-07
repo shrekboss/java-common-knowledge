@@ -1,6 +1,6 @@
-package org.bytedancer.crayzer.devmisuse.coding.httpinvoke.ribbonretry;
+package org.bytedancer.crayzer.coding.httpinvoke.ribbonretry;
 
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

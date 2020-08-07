@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.redundantcode.reflection.right;
+package org.bytedancer.crayzer.design.redundantcode.reflection.right;
 
 import lombok.Data;
 

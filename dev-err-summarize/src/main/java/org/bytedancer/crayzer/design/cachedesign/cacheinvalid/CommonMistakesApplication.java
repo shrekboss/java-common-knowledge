@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.cachedesign.cacheinvalid;
+package org.bytedancer.crayzer.design.cachedesign.cacheinvalid;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

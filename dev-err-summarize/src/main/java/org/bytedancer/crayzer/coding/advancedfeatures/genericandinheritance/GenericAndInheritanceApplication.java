@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.advancedfeatures.genericandinheritance;
+package org.bytedancer.crayzer.coding.advancedfeatures.genericandinheritance;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;

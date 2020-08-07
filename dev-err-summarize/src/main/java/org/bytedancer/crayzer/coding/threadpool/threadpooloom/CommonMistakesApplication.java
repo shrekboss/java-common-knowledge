@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.threadpool.threadpooloom;
+package org.bytedancer.crayzer.coding.threadpool.threadpooloom;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

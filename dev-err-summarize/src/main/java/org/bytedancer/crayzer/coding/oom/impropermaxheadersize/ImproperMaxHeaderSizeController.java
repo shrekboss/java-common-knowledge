@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.oom.impropermaxheadersize;
+package org.bytedancer.crayzer.coding.oom.impropermaxheadersize;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

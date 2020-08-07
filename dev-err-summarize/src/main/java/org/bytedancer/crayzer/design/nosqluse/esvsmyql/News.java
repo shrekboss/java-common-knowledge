@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.nosqluse.esvsmyql;
+package org.bytedancer.crayzer.design.nosqluse.esvsmyql;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

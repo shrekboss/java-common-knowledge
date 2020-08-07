@@ -1,9 +1,9 @@
-package org.bytedancer.crayzer.devmisuse.design.redundantcode.templatemethod.right;
+package org.bytedancer.crayzer.design.redundantcode.templatemethod.right;
 
 
-import org.bytedancer.crayzer.devmisuse.design.redundantcode.templatemethod.Cart;
-import org.bytedancer.crayzer.devmisuse.design.redundantcode.templatemethod.Db;
-import org.bytedancer.crayzer.devmisuse.design.redundantcode.templatemethod.Item;
+import org.bytedancer.crayzer.design.redundantcode.templatemethod.Cart;
+import org.bytedancer.crayzer.design.redundantcode.templatemethod.Db;
+import org.bytedancer.crayzer.design.redundantcode.templatemethod.Item;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

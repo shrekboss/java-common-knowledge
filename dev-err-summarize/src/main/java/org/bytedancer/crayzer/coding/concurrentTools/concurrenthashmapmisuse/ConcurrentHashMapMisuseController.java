@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.concurrentTools.concurrenthashmapmisuse;
+package org.bytedancer.crayzer.coding.concurrentTools.concurrenthashmapmisuse;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;

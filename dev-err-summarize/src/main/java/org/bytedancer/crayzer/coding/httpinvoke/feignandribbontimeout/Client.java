@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.httpinvoke.feignandribbontimeout;
+package org.bytedancer.crayzer.coding.httpinvoke.feignandribbontimeout;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.connPool.httpclient;
+package org.bytedancer.crayzer.coding.connPool.httpclient;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.methods.CloseableHttpResponse;

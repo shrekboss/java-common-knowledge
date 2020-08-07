@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.asynprocess.compensation;
+package org.bytedancer.crayzer.design.asynprocess.compensation;
 
 import jodd.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;

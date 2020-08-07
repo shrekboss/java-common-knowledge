@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.transaction.transactionrollbackfailed;
+package org.bytedancer.crayzer.coding.transaction.transactionrollbackfailed;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

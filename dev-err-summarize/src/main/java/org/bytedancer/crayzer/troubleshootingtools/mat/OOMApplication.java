@@ -1,6 +1,5 @@
 package org.bytedancer.crayzer.troubleshootingtools.mat;
 
-import org.bytedancer.crayzer.devmisuse.troubleshootingtools.mat.FooService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

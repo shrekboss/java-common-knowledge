@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.collection.linkedlist;
+package org.bytedancer.crayzer.coding.collection.linkedlist;
 
 import org.springframework.util.StopWatch;
 

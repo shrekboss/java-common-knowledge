@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.clientdata.trustclientparameter;
+package org.bytedancer.crayzer.safety.clientdata.trustclientparameter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

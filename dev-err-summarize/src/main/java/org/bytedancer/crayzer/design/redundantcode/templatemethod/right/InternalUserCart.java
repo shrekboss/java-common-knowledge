@@ -1,6 +1,6 @@
-package org.bytedancer.crayzer.devmisuse.design.redundantcode.templatemethod.right;
+package org.bytedancer.crayzer.design.redundantcode.templatemethod.right;
 
-import org.bytedancer.crayzer.devmisuse.design.redundantcode.templatemethod.Item;
+import org.bytedancer.crayzer.design.redundantcode.templatemethod.Item;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

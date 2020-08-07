@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.concurrentTools.ciavspia;
+package org.bytedancer.crayzer.coding.concurrentTools.ciavspia;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;

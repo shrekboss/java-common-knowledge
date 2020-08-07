@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.compareto;
+package org.bytedancer.crayzer.coding.equals.compareto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

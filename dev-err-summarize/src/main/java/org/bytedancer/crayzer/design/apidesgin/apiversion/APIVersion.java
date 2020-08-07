@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.apidesgin.apiversion;
+package org.bytedancer.crayzer.design.apidesgin.apiversion;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

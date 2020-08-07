@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.exception.handleexception;
+package org.bytedancer.crayzer.coding.exception.handleexception;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

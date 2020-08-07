@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.exception.threadpoolandexception;
+package org.bytedancer.crayzer.coding.exception.threadpoolandexception;
 
 import jodd.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;

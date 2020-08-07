@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.transaction.nested;
+package org.bytedancer.crayzer.coding.transaction.nested;
 
 
 import org.apache.ibatis.annotations.Insert;

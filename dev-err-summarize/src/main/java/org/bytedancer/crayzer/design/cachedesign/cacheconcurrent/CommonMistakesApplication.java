@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.cachedesign.cacheconcurrent;
+package org.bytedancer.crayzer.design.cachedesign.cacheconcurrent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

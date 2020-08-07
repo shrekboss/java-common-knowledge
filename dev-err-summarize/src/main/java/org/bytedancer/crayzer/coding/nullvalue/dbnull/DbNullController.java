@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.nullvalue.dbnull;
+package org.bytedancer.crayzer.coding.nullvalue.dbnull;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

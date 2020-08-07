@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.productionready.metrics;
+package org.bytedancer.crayzer.design.productionready.metrics;
 
 import lombok.Data;
 

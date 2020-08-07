@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.exception.handleexception;
+package org.bytedancer.crayzer.coding.exception.handleexception;
 
 public class BusinessException extends RuntimeException {
 

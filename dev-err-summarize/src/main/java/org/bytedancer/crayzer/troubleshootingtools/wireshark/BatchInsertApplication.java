@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.troubleshootingtools.wireshark;
+package org.bytedancer.crayzer.troubleshootingtools.wireshark;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.design.nosqluse.influxdbvsmysql;
+package org.bytedancer.crayzer.design.nosqluse.influxdbvsmysql;
 
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;

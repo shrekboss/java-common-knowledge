@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.exception.finallyissue;
+package org.bytedancer.crayzer.coding.exception.finallyissue;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.numbercalculations.overflowissue;
+package org.bytedancer.crayzer.coding.numbercalculations.overflowissue;
 
 import java.math.BigInteger;
 

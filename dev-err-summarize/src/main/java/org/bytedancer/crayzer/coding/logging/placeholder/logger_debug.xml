@@ -6,7 +6,7 @@
         </layout>
     </appender>
 
-    <logger name="org.bytedancer.crayzer.devmisuse.coding.logging" level="DEBUG"/>
+    <logger name="org.bytedancer.crayzer.coding.logging" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>

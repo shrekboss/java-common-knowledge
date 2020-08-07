@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.transaction.transactionrollbackfailed;
+package org.bytedancer.crayzer.coding.transaction.transactionrollbackfailed;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

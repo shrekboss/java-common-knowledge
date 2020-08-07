@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.intandstringequal;
+package org.bytedancer.crayzer.coding.equals.intandstringequal;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.springpart1.beansingletonandorder;
+package org.bytedancer.crayzer.coding.springpart1.beansingletonandorder;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.lombokequals;
+package org.bytedancer.crayzer.coding.equals.lombokequals;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.securitylastdefense.prventcouponfarming;
+package org.bytedancer.crayzer.safety.securitylastdefense.prventcouponfarming;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

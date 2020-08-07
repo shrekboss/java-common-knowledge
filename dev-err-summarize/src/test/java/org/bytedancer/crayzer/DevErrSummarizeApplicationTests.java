@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse;
+package org.bytedancer.crayzer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

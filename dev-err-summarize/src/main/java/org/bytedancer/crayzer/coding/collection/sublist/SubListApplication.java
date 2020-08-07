@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.collection.sublist;
+package org.bytedancer.crayzer.coding.collection.sublist;
 
 import java.util.ArrayList;
 import java.util.List;

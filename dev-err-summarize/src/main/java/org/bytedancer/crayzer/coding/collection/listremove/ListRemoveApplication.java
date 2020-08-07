@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.collection.listremove;
+package org.bytedancer.crayzer.coding.collection.listremove;
 
 import java.util.ArrayList;
 import java.util.Iterator;

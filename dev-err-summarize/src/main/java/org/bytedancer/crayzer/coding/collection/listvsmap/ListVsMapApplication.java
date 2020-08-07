@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.collection.listvsmap;
+package org.bytedancer.crayzer.coding.collection.listvsmap;
 
 import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 import lombok.AllArgsConstructor;

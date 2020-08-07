@@ -1,6 +1,6 @@
-package org.bytedancer.crayzer.devmisuse.coding.concurrentTools.threadlocal;
+package org.bytedancer.crayzer.coding.concurrentTools.threadlocal;
 
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

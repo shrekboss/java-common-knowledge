@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.numbercalculations.rounding;
+package org.bytedancer.crayzer.coding.numbercalculations.rounding;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

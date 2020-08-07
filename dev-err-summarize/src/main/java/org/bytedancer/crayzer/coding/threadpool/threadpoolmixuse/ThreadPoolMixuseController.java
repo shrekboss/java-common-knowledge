@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.threadpool.threadpoolmixuse;
+package org.bytedancer.crayzer.coding.threadpool.threadpoolmixuse;
 
 import jodd.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.nio.file.StandardOpenOption.CREATE;
 import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
-import static org.bytedancer.crayzer.devmisuse.coding.threadpool.PrintThreadPoolStats.printStats;
+import static org.bytedancer.crayzer.coding.threadpool.PrintThreadPoolStats.printStats;
 
 @RestController
 @RequestMapping("threadpoolmixuse")

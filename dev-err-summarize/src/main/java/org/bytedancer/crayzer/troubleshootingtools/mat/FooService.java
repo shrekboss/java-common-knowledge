@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.troubleshootingtools.mat;
+package org.bytedancer.crayzer.troubleshootingtools.mat;
 
 import org.springframework.stereotype.Component;
 

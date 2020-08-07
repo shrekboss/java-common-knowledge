@@ -1,7 +1,7 @@
-package org.bytedancer.crayzer.devmisuse.coding.httpinvoke.ribbonretry;
+package org.bytedancer.crayzer.coding.httpinvoke.ribbonretry;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bytedancer.crayzer.devmisuse.coding.httpinvoke.ribbonretry.feign.SmsClient;
+import org.bytedancer.crayzer.coding.httpinvoke.ribbonretry.feign.SmsClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.transaction.transactionproxyfailed;
+package org.bytedancer.crayzer.coding.transaction.transactionproxyfailed;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

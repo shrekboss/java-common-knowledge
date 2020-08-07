@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.dataandcode.codeinject;
+package org.bytedancer.crayzer.safety.dataandcode.codeinject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

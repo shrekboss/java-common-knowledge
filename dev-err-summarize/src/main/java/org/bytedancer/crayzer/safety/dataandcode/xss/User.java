@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.dataandcode.xss;
+package org.bytedancer.crayzer.safety.dataandcode.xss;
 
 import lombok.Data;
 

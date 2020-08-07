@@ -1,7 +1,7 @@
-package org.bytedancer.crayzer.devmisuse.coding.oom.impropermaxheadersize;
+package org.bytedancer.crayzer.coding.oom.impropermaxheadersize;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bytedancer.crayzer.devmisuse.common.Utils;
+import org.bytedancer.crayzer.common.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

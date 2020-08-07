@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.safety.dataandcode.sqlinject;
+package org.bytedancer.crayzer.safety.dataandcode.sqlinject;
 
 import lombok.Data;
 

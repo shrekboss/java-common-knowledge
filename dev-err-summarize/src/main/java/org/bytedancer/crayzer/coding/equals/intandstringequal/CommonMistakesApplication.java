@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.equals.intandstringequal;
+package org.bytedancer.crayzer.coding.equals.intandstringequal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.connPool.jedis;
+package org.bytedancer.crayzer.coding.connPool.jedis;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;

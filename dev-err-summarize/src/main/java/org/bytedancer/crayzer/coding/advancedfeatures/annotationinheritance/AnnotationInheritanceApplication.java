@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.devmisuse.coding.advancedfeatures.annotationinheritance;
+package org.bytedancer.crayzer.coding.advancedfeatures.annotationinheritance;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.AnnotatedElementUtils;
