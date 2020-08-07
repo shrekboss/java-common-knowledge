@@ -1,4 +1,4 @@
-package java.org.bytedancer.crayzer.java8.lambda.stream.parallel;
+package org.bytedancer.crayzer.java8.stream.parallel;
 
 import java.time.LocalDateTime;
 import java.util.stream.IntStream;

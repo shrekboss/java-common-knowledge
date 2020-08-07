@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.java8.lambda.example.file;
+package org.bytedancer.crayzer.java8.example.file;
 
 import org.junit.Test;
 

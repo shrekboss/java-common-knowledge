@@ -1,7 +1,7 @@
-package org.bytedancer.crayzer.java8.lambda.stream.order;
+package org.bytedancer.crayzer.java8.stream.order;
 
 import lombok.Data;
-import org.bytedancer.crayzer.java8.lambda.example.prodcut.cache.Product;
+import org.bytedancer.crayzer.java8.example.prodcut.cache.Product;
 
 import java.time.LocalDateTime;
 import java.util.List;

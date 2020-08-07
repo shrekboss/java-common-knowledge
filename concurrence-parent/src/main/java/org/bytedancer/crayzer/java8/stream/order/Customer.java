@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.java8.lambda.stream.order;
+package org.bytedancer.crayzer.java8.stream.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

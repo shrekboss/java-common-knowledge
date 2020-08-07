@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.java8.lambda.example.prodcut.cache;
+package org.bytedancer.crayzer.java8.example.prodcut.cache;
 
 import org.junit.Test;
 

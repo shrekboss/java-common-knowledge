@@ -1,4 +1,4 @@
-package java.org.bytedancer.crayzer.java8.lambda.stream.parallel;
+package org.bytedancer.crayzer.java8.stream.parallel;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;

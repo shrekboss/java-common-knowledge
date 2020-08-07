@@ -1,4 +1,4 @@
-package java.org.bytedancer.crayzer.java8.lambda.stream;
+package org.bytedancer.crayzer.java8.stream;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;

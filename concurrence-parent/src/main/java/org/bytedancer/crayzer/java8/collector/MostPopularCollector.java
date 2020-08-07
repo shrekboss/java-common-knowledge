@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.java8.lambda.collector;
+package org.bytedancer.crayzer.java8.collector;
 
 import java.util.*;
 import java.util.function.BiConsumer;

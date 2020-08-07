@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.java8.lambda.collector;
+package org.bytedancer.crayzer.java8.collector;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -46,7 +46,8 @@ public class MostPopularCollector2 implements Collector<Object, Map<Object, Atom
     }
 
     /**
-     * 用于在并发计算的情况下，对各路并发计算的结果进行合并，方法返回的lambda，两个参数就是进行合并的两路计算器，lambda要求最后返回合并的结果
+     * 用于在并发计算的情况下，对各路并发计算的结果进行合并，方法返回的lambda，两个参数就是进行合
+     * 并的两路计算器，lambda要求最后返回合并的结果
      *
      * @return
      */

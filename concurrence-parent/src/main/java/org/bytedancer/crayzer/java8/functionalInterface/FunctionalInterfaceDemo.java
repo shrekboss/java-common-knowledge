@@ -1,4 +1,4 @@
-package java.org.bytedancer.crayzer.java8.lambda.functionalInterface;
+package org.bytedancer.crayzer.java8.functionalInterface;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.*;

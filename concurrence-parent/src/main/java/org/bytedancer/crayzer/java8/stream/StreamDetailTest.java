@@ -1,10 +1,10 @@
-package org.bytedancer.crayzer.java8.lambda.stream;
+package org.bytedancer.crayzer.java8.stream;
 
-import org.bytedancer.crayzer.java8.lambda.collector.MostPopularCollector;
-import org.bytedancer.crayzer.java8.lambda.example.prodcut.cache.Product;
-import org.bytedancer.crayzer.java8.lambda.stream.order.Customer;
-import org.bytedancer.crayzer.java8.lambda.stream.order.Order;
-import org.bytedancer.crayzer.java8.lambda.stream.order.OrderItem;
+import org.bytedancer.crayzer.java8.collector.MostPopularCollector;
+import org.bytedancer.crayzer.java8.example.prodcut.cache.Product;
+import org.bytedancer.crayzer.java8.stream.order.Customer;
+import org.bytedancer.crayzer.java8.stream.order.Order;
+import org.bytedancer.crayzer.java8.stream.order.OrderItem;
 import org.junit.Before;
 import org.junit.Test;
 
