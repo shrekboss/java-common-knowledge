@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.concurrentTools;
+package org.bytedancer.crayzer.common_dev_error.coding.concurrentTools.copyonwritelistmisuse;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;
@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @RestController
-@RequestMapping("/cow")
+@RequestMapping("copyonwritelistmisuse")
 @Slf4j
-public class CopyOnWriteArrayListErrController {
+public class CopyOnWriteListMisuseController {
 
     //测试并发写的性能
     @GetMapping("/write")

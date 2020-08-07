@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.common_dev_error.coding.concurrentTools;
+package org.bytedancer.crayzer.common_dev_error.coding.concurrentTools.concurrenthashmapmisuse;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
@@ -21,9 +21,9 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 @RestController
-@RequestMapping("/concurrenthashmap")
+@RequestMapping("concurrenthashmapmisuse")
 @Slf4j
-public class ConcurrentHashMapErrController {
+public class ConcurrentHashMapMisuseController {
 
     //线程个数
     private static int THREAD_COUNT = 10;
@@ -146,10 +146,6 @@ public class ConcurrentHashMapErrController {
                     freqs.computeIfAbsent(key, k -> new LongAdder()).increment();
 
                     // computeIfAbsent和putIfAbsent区别是三点：
-                    // 1、当Key存在的时候，如果Value获取比较昂贵的话，putIfAbsent就白白浪费时间在获
-                    // 取这个昂贵的Value上（这个点特别注意）
-                    // 2、Key不存在的时候，putIfAbsent返回null，小心空指针，而computeIfAbsent返回计
-                    // 算后的值
                     // 3、当Key不存在的时候，putIfAbsent允许put null进去，而computeIfAbsent不能，之
                     // 后进行containsKey查询是有区别的（当然了，此条针对HashMap，ConcurrentHashMap
                     // 不允许put null value进去）

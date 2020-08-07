@@ -1,10 +1,10 @@
-package org.bytedancer.crayzer.common_dev_error.coding.concurrentTools.test;
+package org.bytedancer.crayzer.common_dev_error.coding.concurrentTools;
 
 import java.util.concurrent.CountDownLatch;
 
 public class MyThreadLocalStringDemo {
 
-    private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
+    private static ThreadLocal<String> threadLocal = ThreadLocal.withInitial(() -> null);
 
     private String getString() {
         return threadLocal.get();
