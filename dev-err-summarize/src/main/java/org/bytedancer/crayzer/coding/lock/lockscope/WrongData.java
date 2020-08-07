@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.coding.lock;
+package org.bytedancer.crayzer.coding.lock.lockscope;
 
 
 public class WrongData {
@@ -9,6 +9,7 @@ public class WrongData {
         return counter;
     }
 
+    // 锁的 scope 错误
     public synchronized void wrong() {
         counter++;
     }

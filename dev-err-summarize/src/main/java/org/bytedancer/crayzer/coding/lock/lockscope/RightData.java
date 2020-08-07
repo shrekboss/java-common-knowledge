@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.coding.lock;
+package org.bytedancer.crayzer.coding.lock.lockscope;
 
 
 public class RightData {

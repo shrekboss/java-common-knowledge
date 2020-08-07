@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.coding.lock;
+package org.bytedancer.crayzer.coding.lock.lockgranularity;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,13 +11,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 @RestController
-@RequestMapping("threadsaftarraylist")
+@RequestMapping("lockgranularity")
 @Slf4j
-public class ThreadSafeArrayListController {
+public class LockGranularityController {
 
     private List<Integer> data = new ArrayList<>();
 
-    //不涉及共享资源的慢方法
     private void slow() {
         try {
             TimeUnit.MILLISECONDS.sleep(10);

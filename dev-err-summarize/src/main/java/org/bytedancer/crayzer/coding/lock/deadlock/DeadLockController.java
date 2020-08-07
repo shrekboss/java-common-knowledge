@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.coding.lock;
+package org.bytedancer.crayzer.coding.lock.deadlock;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
 
 @RestController
 @RequestMapping("deadlock")
@@ -74,10 +75,7 @@ public class DeadLockController {
         return success;
     }
 
-    /**
-     * 购物车中的商品排一下序
-     * @return
-     */
+    // 购物车中的商品排一下序
     @GetMapping("right")
     public long right() {
         long begin = System.currentTimeMillis();

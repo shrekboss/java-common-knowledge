@@ -1,8 +1,7 @@
-package org.bytedancer.crayzer.coding.lock;
+package org.bytedancer.crayzer.coding.lock.lockscope;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 
 @SpringBootApplication
 public class CommonMistakesApplication {
