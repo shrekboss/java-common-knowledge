@@ -22,6 +22,7 @@ public class RibbonRetryIssueClientController {
         log.info("client is called");
         try {
             smsClient.sendSmsWrong("13600000000", UUID.randomUUID().toString());
+            // smsClient.sendSmsRight("13600000000", UUID.randomUUID().toString());
         } catch (Exception ex) {
             log.error("send sms failed : {}", ex.getMessage());
         }

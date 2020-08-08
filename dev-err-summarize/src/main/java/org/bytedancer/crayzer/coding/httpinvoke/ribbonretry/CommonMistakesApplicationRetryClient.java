@@ -6,13 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class CommonMistakesApplicationRetry {
+public class CommonMistakesApplicationRetryClient {
 
     public static void main(String[] args) {
+        System.setProperty("server.port", "45679");
         Utils.loadPropertySource(
-                CommonMistakesApplicationRetry.class,
+                CommonMistakesApplicationRetryClient.class,
                 "default-ribbon.properties");
-        SpringApplication.run(CommonMistakesApplicationRetry.class, args);
+        SpringApplication.run(CommonMistakesApplicationRetryClient.class, args);
     }
 }
 
