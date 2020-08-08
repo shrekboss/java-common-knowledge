@@ -4,15 +4,19 @@
 配置 Spring 框架使用 AspectJ 来实现 AOP。
 
 ### 小心Spring的事务可能没有生效：transactionproxyfailed
-//在UserService中通过this调用public的createUserPublic
-[10:10:19.913] [http-nio-45678-exec-1] [DEBUG] [o.s.orm.jpa.JpaTransactionManager       :370 ] 
-- Creating new transaction with name 
-[org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+1. **@Transactional 生效原则 1，除非特殊配置（比如使用 AspectJ 静态织入实现 AOP），否则只有定义在 
+public 方法上的 @Transactional 才能生效**
+2. **@Transactional 生效原则 2，必须通过代理过的类从外部调用目标方法才能生效**
 
-//在Controller中通过注入的UserService Bean调用createUserPublic
-[10:10:47.750] [http-nio-45678-exec-6] [DEBUG] [o.s.orm.jpa.JpaTransactionManager       :370 ]
- - Creating new transaction with name 
- [org.geekbang.time.commonmistakes.transaction.demo1.UserService.createUserPublic]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+**org.bytedancer.crayzer.coding.transaction.transactionproxyfailed.TransactionProxyFailedController.wrong2**
+- 在UserService中通过this调用public的createUserPublic
+Creating new transaction with name [org.springframework.data.jpa.repository.support.**SimpleJpaRepository**.save]: 
+PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+
+**org.bytedancer.crayzer.coding.transaction.transactionproxyfailed.TransactionProxyFailedController.right2**
+- 在Controller中通过注入的UserService Bean调用createUserPublic
+Creating new transaction with name [UserService.createUserPublic]: 
+PROPAGATION_REQUIRED,ISOLATION_DEFAULT
 
 ### 事务即便生效也不一定能回滚：transactionrollbackfailed
 > 通过 AOP 实现事务处理可以理解为，使用 try…catch…来包裹标记了 @Transactional 注解的方法，
@@ -63,7 +67,8 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 - createMainUser finish
 **第 2 行日志提示创建主用户完成；**
 - Suspending current transaction, creating new transaction with name [...SubUserService.createSubUserWithExceptionRight]
-**第 3 行日志可以看到主事务挂起了，开启了一个新的事务，针对 createSubUserWithExceptionRight 方案，也就是我们的创建子用户的逻辑；**
+**第 3 行日志可以看到主事务挂起了，开启了一个新的事务，针对 createSubUserWithExceptionRight 方案，
+也就是我们的创建子用户的逻辑；**
 - Initiating transaction rollback
 **第 4 行日志提示子方法事务回滚；**
 - Resuming suspended transaction after completion of inner transaction
