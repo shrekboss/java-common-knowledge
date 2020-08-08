@@ -60,3 +60,61 @@ MySQL 在查询数据之前，会先对可能的方案做执行计划，然后�
 rows: 100009   -> cpu 成本 100009*0.2 = 20002
 data_length: 4734976   -> io 成本 4734976b / 15kb = 289
 权标扫描的总成本：20002 + 289
+
+### 通过 optimizer trace 来分析**索引覆盖**和**回表**的两种情况
+```sql
+SET optimizer_trace="enabled=on";
+select * from person where NAME='name1';
+SELECT * FROM information_schema.OPTIMIZER_TRACE;
+select NAME,SCORE from person where NAME='name1';
+SELECT * FROM information_schema.OPTIMIZER_TRACE;
+SET optimizer_trace="enabled=off";
+```
+索引覆盖（index_only=true）的成本是 1.21：
+```json
+analyzing_range_alternatives": {
+  "range_scan_alternatives": [
+  {
+    "index": "name_score",
+    "ranges": [
+      "name1 <= name <= name1"
+    ] /* ranges */,
+    "index_dives_for_eq_ranges": true,
+    "rowid_ordered": false,
+    "using_mrr": false,
+    "index_only": true,
+    "rows": 1,
+    "cost": 1.21,
+    "chosen": true
+  }
+]
+```
+回表查询（index_only=false）的成本是 2.21：
+```json
+
+"range_scan_alternatives": [
+  {
+    "index": "name_score",
+    "ranges": [
+      "name1 <= name <= name1"
+    ] /* ranges */,
+    "index_dives_for_eq_ranges": true,
+    "rowid_ordered": false,
+    "using_mrr": false,
+    "index_only": false,
+    "rows": 1,
+    "cost": 2.21,
+    "chosen": true
+  }
+]
+```
+
+### 通过 EXPLAIN 查看索引在排序时发挥作用 && 针对排序索引会失效问题
+排序使用到索引，在执行计划中的体现就是 **key** 这一列。如果没有用到索引，会在 **Extra** 中看到 **Using filesort，
+代表使用了内存或磁盘进行排序**。而具体走内存还是磁盘，是由 sort_buffer_size 和排序数据大小决定的。
+
+**排序无法使用到索引的情况有：**
+- 对于使用联合索引进行排序的场景，多个字段排序 ASC 和 DESC 混用；
+- a+b 作为联合索引，按照 a 范围查询后按照 b 排序；
+- 排序列涉及到的多个字段不属于同一个联合索引；
+- 排序列使用了表达式。
