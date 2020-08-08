@@ -48,7 +48,9 @@ public class TwoTimeoutConfigController {
     public String redis() {
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxTotal(1);
+        // 请求连接超时
         config.setMaxWaitMillis(10000);
+        // 连接超时
         try (JedisPool jedisPool = new JedisPool(config, "127.0.0.1", 6379, 5000);
              Jedis jedis = jedisPool.getResource()) {
             return jedis.set("test", "test");
@@ -58,7 +60,9 @@ public class TwoTimeoutConfigController {
     @GetMapping("http")
     public String http() {
         RequestConfig requestConfig = RequestConfig.custom()
+                // 连接超时
                 .setConnectTimeout(5000)
+                // 请求连接超时
                 .setConnectionRequestTimeout(10000)
                 .build();
         HttpGet httpGet = new HttpGet("http://127.0.0.1:45678/twotimeoutconfig/test");
