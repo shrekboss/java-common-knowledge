@@ -1,4 +1,8 @@
 ## 20%的业务代码的Spring声明式事务，可能都没处理正确
+### 针对 private 方法启用事务：transactionprivatemethod
+- 动态代理方式的 AOP 不可行，需要使用静态织入方式的 AOP，也就是在编译期间织入事务增强代码，可以
+配置 Spring 框架使用 AspectJ 来实现 AOP。
+
 ### 小心Spring的事务可能没有生效：transactionproxyfailed
 //在UserService中通过this调用public的createUserPublic
 [10:10:19.913] [http-nio-45678-exec-1] [DEBUG] [o.s.orm.jpa.JpaTransactionManager       :370 ] 

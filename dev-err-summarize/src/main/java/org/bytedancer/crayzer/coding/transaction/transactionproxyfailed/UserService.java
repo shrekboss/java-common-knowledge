@@ -55,6 +55,8 @@ public class UserService {
     }
 
     @Transactional
+    // 针对 private 方法启用事务，动态代理方式的 AOP 不可行，
+    // 需要使用静态织入方式的 AOP，也就是在编译期间织入事务增强代码
     private void createUserPrivate(UserEntity entity) {
     // public void createUserPrivate(UserEntity entity) { 正确
         userRepository.save(entity);
@@ -79,7 +81,6 @@ public class UserService {
         }
         return userRepository.findByName(name).size();
     }
-
 
     //不出异常
     @Transactional

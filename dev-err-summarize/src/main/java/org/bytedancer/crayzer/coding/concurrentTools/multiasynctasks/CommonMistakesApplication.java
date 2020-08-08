@@ -14,7 +14,11 @@ public class CommonMistakesApplication {
     private static ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     public static void main(String[] args) {
-        test1();
+        // result [-1, -1, -1, -1] took 116 ms
+        // test1();
+
+        // result [1, 2, 3] took 3100 ms
+        test2();
     }
 
     private static void test1() {
