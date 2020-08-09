@@ -39,6 +39,7 @@ public class HttpClientNotReuseController {
 
     @GetMapping("/wrong1")
     public String wrong1() {
+        // 没有复用 CloseableHttpClient 连接池
         CloseableHttpClient client = HttpClients.custom()
                 .setConnectionManager(new PoolingHttpClientConnectionManager())
                 .evictIdleConnections(60, TimeUnit.SECONDS).build();
@@ -53,6 +54,7 @@ public class HttpClientNotReuseController {
     // 确保连接池使用完之后关闭
     @GetMapping("/wrong2")
     public String wrong2() {
+        // 新建连接池方式应该是每次都会创建新的 TCP 连接
         try (CloseableHttpClient client = HttpClients.custom()
                 .setConnectionManager(new PoolingHttpClientConnectionManager())
                 .evictIdleConnections(60, TimeUnit.SECONDS).build();
