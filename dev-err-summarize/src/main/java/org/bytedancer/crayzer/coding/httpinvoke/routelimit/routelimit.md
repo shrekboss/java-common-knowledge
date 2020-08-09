@@ -1,3 +1,8 @@
+> Per default this implementation will create no more than than 2 concurrent connections per given 
+> route and no more 20 connections in total. For many real-world applications
+> these limits may prove too constraining, especially if they use HTTP
+> as a transport protocol for their services. Connection limits, however,
+> can be adjusted using {@link ConnPoolControl} methods.
 ```java
 public class PoolingHttpClientConnectionManager
     implements HttpClientConnectionManager, ConnPoolControl<HttpRoute>, Closeable {
