@@ -5,6 +5,7 @@
 ### 注意compareTo和equals的逻辑一致性：compareto
 - 对于自定义的类型，如果要实现 Comparable，请记得 equals、hashCode、compareTo 三者逻辑一致。
 ### 小心Lombok生成代码的“坑”：lombokequals
+
 ### 补充）不同类加载器加载相同类的坑：differentclassloaderequals
 > equals比较的对象除了所谓的相等外，还有一个非常重要的因素，就是该对象的类加载器也必须是同一个，
 > 不然equals返回的肯定是false；之前遇到过一个坑：重启后，两个对象相等，结果是true，但是修改了某些

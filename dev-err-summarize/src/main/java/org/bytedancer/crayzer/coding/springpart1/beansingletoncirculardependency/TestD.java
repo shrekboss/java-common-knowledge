@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.coding.springpart1.beansingletonandorder;
+package org.bytedancer.crayzer.coding.springpart1.beansingletoncirculardependency;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;

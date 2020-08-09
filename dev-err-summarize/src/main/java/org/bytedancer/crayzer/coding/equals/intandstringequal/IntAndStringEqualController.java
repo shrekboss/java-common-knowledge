@@ -95,6 +95,7 @@ public class IntAndStringEqualController {
     @PostMapping("enumcompare")
     public void enumcompare(@RequestBody OrderQuery orderQuery) {
         StatusEnum statusEnum = StatusEnum.DELIVERED;
+        // 枚举和入参 OrderQuery 中的 status 都是包装类型，所以通过 == 判等肯定是有问题的
         log.info("orderQuery:{} statusEnum:{} result:{}", orderQuery, statusEnum, statusEnum.status == orderQuery.getStatus());
     }
 
@@ -104,7 +105,7 @@ public class IntAndStringEqualController {
         DELIVERED(1002, "已送到"),
         FINISHED(1003, "已完成");
 
-        private final Integer status;
+        private final Integer status; //注意这里的Integer
         private final String desc;
 
         StatusEnum(Integer status, String desc) {

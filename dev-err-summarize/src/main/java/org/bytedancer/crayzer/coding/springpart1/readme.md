@@ -9,7 +9,8 @@
     - Spring AOP 中，**把增强定义为拦截器**。
 - 找到蛋糕胚子中要加奶油的地方并加入奶油。为蛋糕做奶油夹层的操作。
     - 对 Spring AOP 来说就是切面（Aspect），也叫作方面。**切面 = 切点 + 增强**。
-    
+
+### 单例的Bean如何解决循环依赖(构造器的循环依赖 && field属性的循环依赖)？：beansingletoncirculardependency
 **当 Bean 产生循环依赖问题**
 直观解决方法时通过set方法去处理，背后的原理其实是缓存。
 主要解决方式：**使用三级缓存**
@@ -20,7 +21,7 @@
 1. TestA && TestB
 2. TestC && TestD
 
-### 单例的Bean如何注入Prototype的Bean？：beansingletonandorder
+### 单例的Bean如何注入Prototype的Bean？：beanprototype
 Spring 创建的 Bean 默认是单例的，但当 Bean 遇到继承的时候，可能会忽略这一点。
 
 开发基类的架构师将基类设计为有状态的，但并不知道子类是怎么使用基类的；而开发子类的同学，没多想就
