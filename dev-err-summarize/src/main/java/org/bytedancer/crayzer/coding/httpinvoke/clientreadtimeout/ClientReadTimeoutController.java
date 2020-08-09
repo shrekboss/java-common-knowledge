@@ -24,13 +24,6 @@ public class ClientReadTimeoutController {
                 .asString();
     }
 
-    /**
-     * java.net.SocketTimeoutException: Read timed out
-     * 第一个误区：认为出现了读取超时，服务端的执行就会中断。
-     * 第二个误区：认为读取超时只是 Socket 网络层面的概念，是数据传输的最长耗时，故将其配置得非常
-     * 短，比如 100 毫秒。
-     * 第三个误区：认为超时时间越长任务接口成功率就越高，将读取超时参数配置得太长。
-     */
     @GetMapping("client")
     public String client() throws IOException {
         log.info("client1 called");

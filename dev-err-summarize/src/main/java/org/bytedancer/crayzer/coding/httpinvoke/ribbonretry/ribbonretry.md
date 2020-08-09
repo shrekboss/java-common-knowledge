@@ -12,7 +12,7 @@
 - 第一种：接口从 Get 改为 Post
 - 第二种：将 MaxAutoRetriesNextServer 参数配置为 0
 
-```java
+```
 // MaxAutoRetriesNextServer 参数默认为 1，也就是 Get 请求在某个服务端节点出现问题（比如读取超时）
 // 时，Ribbon 会自动重试一次
 
