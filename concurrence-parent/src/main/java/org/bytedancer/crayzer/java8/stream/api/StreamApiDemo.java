@@ -128,6 +128,10 @@ public class StreamApiDemo {
      */
     private void terminalOperate() {
         List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
+
+        long count = integerList.stream().count();
+        Long collect = integerList.stream().collect(counting());
+
         // 通过findFirst方法查找到第一个大于三的元素并打印
         Optional<Integer> first = integerList.stream().filter(i -> i > 3).findFirst();
         // 随机查找一个
@@ -139,7 +143,14 @@ public class StreamApiDemo {
 
     private void doCalculation(List<Dish> menu) {
         Optional<Integer> min = menu.stream().map(Dish::getCalories).collect(minBy(Integer::min));
+        OptionalInt min1 = menu.stream().mapToInt(Dish::getCalories).min();
+        Optional<Integer> min2 = menu.stream().map(Dish::getCalories).collect(minBy(Integer::compareTo));
+        Optional<Integer> min3 = menu.stream().map(Dish::getCalories).reduce(Integer::min);
+
         Optional<Integer> max = menu.stream().map(Dish::getCalories).collect(Collectors.maxBy(Integer::max));
+        OptionalInt max1 = menu.stream().mapToInt(Dish::getCalories).max();
+        Optional<Integer> max2 = menu.stream().map(Dish::getCalories).collect(maxBy(Integer::compareTo));
+        Optional<Integer> max3 = menu.stream().map(Dish::getCalories).reduce(Integer::max);
 
         int sum1 = menu.stream().collect(summingInt(Dish::getCalories));
         int sum2 = menu.stream().map(Dish::getCalories).reduce(0, Integer::sum);
@@ -147,10 +158,11 @@ public class StreamApiDemo {
 
         double average = menu.stream().collect(averagingInt(Dish::getCalories));
 
+        // 通过summarizingInt同时求总和、平均值、最大值、最小值
         IntSummaryStatistics intSummaryStatistics = menu.stream().collect(summarizingInt(Dish::getCalories));
         double average1 = intSummaryStatistics.getAverage();
-        int min1 = intSummaryStatistics.getMin();
-        int max1 = intSummaryStatistics.getMax();
+        int intMin = intSummaryStatistics.getMin();
+        int intMax = intSummaryStatistics.getMax();
         long sum = intSummaryStatistics.getSum();
     }
 
