@@ -20,6 +20,7 @@
         <module>design-parent</module>
         <module>dev-err-summarize</module>
         <module>databases</module>
+        <module>projects</module>
     </modules>
 
     <properties>
