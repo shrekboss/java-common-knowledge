@@ -25,7 +25,7 @@ public class Lazy_v5_InnerClassSingleton {
      * final 保证这个方法不会被重写，重载
      */
     public static final Lazy_v5_InnerClassSingleton getInstance() {
-        return SingletonHolder.instance;
+        return SingletonHolder.INSTANCE;
     }
 
     /**
@@ -38,7 +38,7 @@ public class Lazy_v5_InnerClassSingleton {
      * 从内部看是一个饿汉式的单例，但是从外部看来，又的确是懒汉式的实现。
      */
     private static class SingletonHolder {
-        private static final Lazy_v5_InnerClassSingleton instance = new Lazy_v5_InnerClassSingleton();
+        private static final Lazy_v5_InnerClassSingleton INSTANCE = new Lazy_v5_InnerClassSingleton();
     }
 
     /** 防止 反射 攻击！ */
@@ -46,8 +46,8 @@ public class Lazy_v5_InnerClassSingleton {
 
     private Lazy_v5_InnerClassSingleton() {
         synchronized (Lazy_v5_InnerClassSingleton.class){
-            if(initialized == false){
-                initialized = !initialized;
+            if(!initialized){
+                initialized = true;
             }
             else{
                 throw new RuntimeException("单例已被侵犯");
