@@ -19,6 +19,7 @@
         <module>concurrence-parent</module>
         <module>design-parent</module>
         <module>dev-err-summarize</module>
+        <module>databases</module>
     </modules>
 
     <properties>
