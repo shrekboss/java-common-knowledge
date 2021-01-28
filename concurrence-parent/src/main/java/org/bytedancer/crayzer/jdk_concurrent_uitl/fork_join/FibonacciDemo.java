@@ -13,7 +13,7 @@ public class FibonacciDemo {
         //创建分治任务线程池
         ForkJoinPool fjp = new ForkJoinPool(4);
         //创建分治任务
-        Fibonacci fib = new Fibonacci(30);
+        Fibonacci fib = new Fibonacci(4);
         //启动分治任务
         Integer result = fjp.invoke(fib);
         //输出结果

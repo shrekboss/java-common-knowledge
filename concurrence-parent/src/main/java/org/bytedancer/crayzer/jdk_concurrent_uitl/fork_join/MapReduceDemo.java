@@ -5,16 +5,19 @@ import java.util.Map;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * @author yizhe.chen
+ */
 public class MapReduceDemo {
 
     public static void main(String[] args){
         String[] fc = {"hello world",
                 "hello me",
-                // "hello fork",
-                // "hello join",
+                "hello fork",
+                "hello join",
                 "fork join in world"};
         //创建ForkJoin线程池
-        ForkJoinPool fjp = new ForkJoinPool(3);
+        ForkJoinPool fjp = new ForkJoinPool(4);
         //创建任务
         MR mr = new MR(fc, 0, fc.length);
         //启动任务
@@ -38,7 +41,7 @@ public class MapReduceDemo {
             if (end - start == 1) {
                 return calc(fc[start]);
             } else {
-                int mid = (start + end) >>> 2;
+                int mid = (start + end) / 2;
                 MR mr1 = new MR(fc, start, mid);
                 mr1.fork();
                 MR mr2 = new MR(fc, mid, end);
@@ -49,14 +52,9 @@ public class MapReduceDemo {
 
         //合并结果
         private Map<String, Long> merge(Map<String, Long> r1, Map<String, Long> r2) {
-            Map<String, Long> result = new HashMap<>();
-            result.putAll(r1);
+            Map<String, Long> result = new HashMap<>(r1);
             //合并结果
-            r2.forEach((k, v) -> {
-                Long c = result.get(k);
-                if (c != null) result.put(k, c+v);
-                else result.put(k, v);
-            });
+            r2.forEach((k, v) -> result.merge(k, v, Long::sum));
             return result;
         }
         //统计单词数量
@@ -67,8 +65,11 @@ public class MapReduceDemo {
             //统计单词数量
             for (String w : words) {
                 Long v = result.get(w);
-                if (v != null) result.put(w, v+1);
-                else result.put(w, 1L);
+                if (v != null) {
+                    result.put(w, v+1);
+                } else {
+                    result.put(w, 1L);
+                }
             }
             return result;
         }
