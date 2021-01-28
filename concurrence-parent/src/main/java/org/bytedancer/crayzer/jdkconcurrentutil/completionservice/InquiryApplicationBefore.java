@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.jdkconcurrentutil.completionService;
+package org.bytedancer.crayzer.jdkconcurrentutil.completionservice;
 
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;

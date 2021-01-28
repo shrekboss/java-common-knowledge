@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.jdkconcurrentutil.stampLock;
+package org.bytedancer.crayzer.jdkconcurrentutil.stamplock;
 
 import java.util.concurrent.locks.StampedLock;
 

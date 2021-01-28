@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.jdkconcurrentutil.completableFuture;
+package org.bytedancer.crayzer.jdkconcurrentutil.completablefuture;
 
 import java.util.concurrent.CompletableFuture;
 

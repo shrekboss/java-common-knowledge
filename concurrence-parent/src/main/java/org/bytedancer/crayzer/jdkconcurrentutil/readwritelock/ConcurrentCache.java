@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.jdkconcurrentutil.readWriteLock;
+package org.bytedancer.crayzer.jdkconcurrentutil.readwritelock;
 
 import java.util.HashMap;
 import java.util.Map;
