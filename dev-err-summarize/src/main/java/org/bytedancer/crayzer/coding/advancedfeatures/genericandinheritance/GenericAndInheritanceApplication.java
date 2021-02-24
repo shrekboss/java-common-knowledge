@@ -4,12 +4,15 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
+/**
+ * @author yizhe.chen
+ */
 public class GenericAndInheritanceApplication {
 
     public static void main(String[] args) {
-        // wrong1();
+        wrong1();
         wrong2();
-        // wrong3();
+        wrong3();
         right();
     }
 
@@ -96,7 +99,7 @@ public class GenericAndInheritanceApplication {
 }
 
 class Parent<T> {
-    // //用于记录value更新的次数，模拟日志记录的逻辑
+    // 用于记录value更新的次数，模拟日志记录的逻辑
     AtomicInteger updateCount = new AtomicInteger();
 
     private T value;
@@ -113,10 +116,13 @@ class Parent<T> {
     }
 }
 
-// 1. 类没有指定 String 泛型参数，父类的泛型方法 setValue(T value) 在泛型擦除后是
-// setValue(Object value)，子类中入参是 String 的 setValue 方法被当作了新方法
-// 2. 子类的 setValue 方法没有增加 @Override 注解，因此编译器没能检测到重写失败的问题
+/**
+ * 1. 类没有指定 String 泛型参数，父类的泛型方法 setValue(T value) 在泛型擦除后是
+ * setValue(Object value)，子类中入参是 String 的 setValue 方法被当作了新方法
+ * 2. 子类的 setValue 方法没有增加 @Override 注解，因此编译器没能检测到重写失败的问题
+ */
 class Child1 extends Parent {
+
     public void setValue(String value) {
         System.out.println("Child1.setValue called");
         super.setValue(value);

@@ -3,6 +3,9 @@ package org.bytedancer.crayzer.coding.advancedfeatures.annotationinheritance;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 
+/**
+ * @author yizhe.chen
+ */
 @Slf4j
 public class AnnotationInheritanceApplication {
 
@@ -19,27 +22,34 @@ public class AnnotationInheritanceApplication {
     public static void wrong() throws NoSuchMethodException {
         Parent parent = new Parent();
         log.info("ParentClass:{}", getAnnotationValue(parent.getClass().getAnnotation(MyAnnotation.class)));
-        log.info("ParentMethod:{}", getAnnotationValue(parent.getClass().getMethod("foo").getAnnotation(MyAnnotation.class)));
-
+        log.info("ParentMethod:{}", getAnnotationValue(parent.getClass().getMethod("foo")
+                .getAnnotation(MyAnnotation.class)));
 
         Child child = new Child();
         log.info("ChildClass:{}", getAnnotationValue(child.getClass().getAnnotation(MyAnnotation.class)));
-        log.info("ChildMethod:{}", getAnnotationValue(child.getClass().getMethod("foo").getAnnotation(MyAnnotation.class)));
-
+        log.info("ChildMethod:{}", getAnnotationValue(child.getClass().getMethod("foo")
+                .getAnnotation(MyAnnotation.class)));
     }
 
     public static void right() throws NoSuchMethodException {
+        System.out.println();
+
         Parent parent = new Parent();
         log.info("ParentClass:{}", getAnnotationValue(parent.getClass().getAnnotation(MyAnnotation.class)));
-        log.info("ParentMethod:{}", getAnnotationValue(parent.getClass().getMethod("foo").getAnnotation(MyAnnotation.class)));
+        log.info("ParentMethod:{}", getAnnotationValue(parent.getClass().getMethod("foo")
+                .getAnnotation(MyAnnotation.class)));
 
         Child child = new Child();
         // Spring 提供了 AnnotatedElementUtils 类，区别 findXXX 和 getXXX。
-        log.info("ChildClass: getMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils.getMergedAnnotation(child.getClass(), MyAnnotation.class)));
-        log.info("ChildMethod: getMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils.getMergedAnnotation(child.getClass().getMethod("foo"), MyAnnotation.class)));
-        System.out.println();
-        log.info("ChildClass: findMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils.findMergedAnnotation(child.getClass(), MyAnnotation.class)));
-        log.info("ChildMethod: findMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils.findMergedAnnotation(child.getClass().getMethod("foo"), MyAnnotation.class)));
+        log.info("ChildClass: getMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils
+                .getMergedAnnotation(child.getClass(), MyAnnotation.class)));
+        log.info("ChildMethod: getMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils
+                .getMergedAnnotation(child.getClass().getMethod("foo"), MyAnnotation.class)));
+
+        log.info("ChildClass: findMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils
+                .findMergedAnnotation(child.getClass(), MyAnnotation.class)));
+        log.info("ChildMethod: findMergedAnnotation {}", getAnnotationValue(AnnotatedElementUtils
+                .findMergedAnnotation(child.getClass().getMethod("foo"), MyAnnotation.class)));
     }
 
     @MyAnnotation(value = "Class")

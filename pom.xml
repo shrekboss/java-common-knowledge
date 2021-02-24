@@ -21,6 +21,7 @@
         <module>dev-err-summarize</module>
         <module>databases</module>
         <module>projects</module>
+        <module>arithmetic</module>
     </modules>
 
     <properties>

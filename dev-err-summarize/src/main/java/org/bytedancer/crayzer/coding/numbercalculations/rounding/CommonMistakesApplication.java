@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+/**
+ * @author yizhe.chen
+ */
 @SpringBootApplication
 public class CommonMistakesApplication {
 
