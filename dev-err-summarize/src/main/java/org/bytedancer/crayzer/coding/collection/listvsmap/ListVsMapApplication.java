@@ -15,11 +15,13 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * @author yizhe.chen
+ */
 public class ListVsMapApplication {
 
     /**
      * 搜索 ArrayList 的时间复杂度是 O(n)，而 HashMap 的 get 操作的时间复杂度是 O(1)
-     * @throws InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
 
@@ -28,12 +30,14 @@ public class ListVsMapApplication {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("listSearch");
         Object list = listSearch(elementCount, loopCount);
-        System.out.println(ObjectSizeCalculator.getObjectSize(list));// 内存占用
+        // 内存占用
+        System.out.println(ObjectSizeCalculator.getObjectSize(list));
         stopWatch.stop();
         stopWatch.start("mapSearch");
         Object map = mapSearch(elementCount, loopCount);
         stopWatch.stop();
-        System.out.println(ObjectSizeCalculator.getObjectSize(map));// 内存占用
+        // 内存占用
+        System.out.println(ObjectSizeCalculator.getObjectSize(map));
         System.out.println(stopWatch.prettyPrint());
         TimeUnit.HOURS.sleep(1);
     }

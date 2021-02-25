@@ -61,7 +61,7 @@ public class AsListApplication {
     private static void right2() {
         String[] arr = {"1", "2", "3"};
         // 重新 new 一个 ArrayList 初始化 Arrays.asList 返回的 List
-        List list = new ArrayList(Arrays.asList(arr));
+        List<String> list = new ArrayList<>(Arrays.asList(arr));
         arr[1] = "4";
         try {
             list.add("5");

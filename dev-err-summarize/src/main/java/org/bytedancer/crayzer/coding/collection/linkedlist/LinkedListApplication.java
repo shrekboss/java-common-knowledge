@@ -9,6 +9,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * @author yizhe.chen
+ */
 public class LinkedListApplication {
 
     public static void main(String[] args) {

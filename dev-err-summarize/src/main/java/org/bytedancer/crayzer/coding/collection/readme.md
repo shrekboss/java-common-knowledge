@@ -1,5 +1,5 @@
 ## 集合类：坑满地的List列表操作
-### 使用Arrays.asList把数据转换为List的三个坑：aslist
+### 使用Arrays.asList把数据转换为List的三个坑：asList
 1. 不能直接使用 Arrays.asList 来转换基本类型数组
 2. Arrays.asList 返回的 List 不支持增删操作(**Arrays.asList 返回的 List 并不是期望的 java.util.ArrayList，
 而是 Arrays 的内部类 ArrayList，并没有覆写父类的 add 方法**)
