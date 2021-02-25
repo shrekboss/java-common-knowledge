@@ -1,5 +1,8 @@
 package org.bytedancer.crayzer.coding.advancedfeatures.innerclass;
 
+/**
+ * @author yizhe.chen
+ */
 public class InnerClassApplication {
 
     private String gender = "male";

@@ -11,6 +11,7 @@ public class AnnotationInheritanceApplication {
 
     public static void main(String[] args) throws NoSuchMethodException {
         wrong();
+        System.out.println();
         right();
     }
 
@@ -32,8 +33,6 @@ public class AnnotationInheritanceApplication {
     }
 
     public static void right() throws NoSuchMethodException {
-        System.out.println();
-
         Parent parent = new Parent();
         log.info("ParentClass:{}", getAnnotationValue(parent.getClass().getAnnotation(MyAnnotation.class)));
         log.info("ParentMethod:{}", getAnnotationValue(parent.getClass().getMethod("foo")

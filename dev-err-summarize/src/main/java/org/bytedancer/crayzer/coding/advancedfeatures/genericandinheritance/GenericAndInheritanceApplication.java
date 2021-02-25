@@ -10,9 +10,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GenericAndInheritanceApplication {
 
     public static void main(String[] args) {
+        System.out.println("wrong1 方法开始调用");
         wrong1();
+        System.out.println("wrong2 方法开始调用");
         wrong2();
+        System.out.println("wrong3 方法开始调用");
         wrong3();
+        System.out.println("right 方法开始调用");
         right();
     }
 
@@ -25,7 +29,7 @@ public class GenericAndInheritanceApplication {
     public static void wrong1() {
         Child1 child1 = new Child1();
         Arrays.stream(child1.getClass().getMethods())
-                .filter(method -> method.getName().equals("setValue"))
+                .filter(method -> "setValue".equals(method.getName()))
                 .forEach(method -> {
                     try {
                         method.invoke(child1, "test");
@@ -44,7 +48,7 @@ public class GenericAndInheritanceApplication {
     public static void wrong2() {
         Child1 child1 = new Child1();
         Arrays.stream(child1.getClass().getDeclaredMethods())
-                .filter(method -> method.getName().equals("setValue"))
+                .filter(method -> "setValue".equals(method.getName()))
                 .forEach(method -> {
                     try {
                         method.invoke(child1, "test");
@@ -65,7 +69,7 @@ public class GenericAndInheritanceApplication {
     public static void wrong3() {
         Child2 child2 = new Child2();
         Arrays.stream(child2.getClass().getDeclaredMethods())
-                .filter(method -> method.getName().equals("setValue"))
+                .filter(method -> "setValue".equals(method.getName()))
                 .forEach(method -> {
                     try {
                         method.invoke(child2, "test");
@@ -84,7 +88,7 @@ public class GenericAndInheritanceApplication {
         Arrays.stream(child2.getClass().getDeclaredMethods())
                 // 通过 getDeclaredMethods 方法获取到所有方法后，必须同时根据方法名 setValue 和
                 // 非 isBridge 两个条件过滤，才能实现唯一过滤；
-                .filter(method -> method.getName().equals("setValue") && !method.isBridge())
+                .filter(method -> "setValue".equals(method.getName()) && !method.isBridge())
                 // 使用 Stream 时，如果希望只匹配 0 或 1 项的话，可以考虑配合 ifPresent 来使用
                 // findFirst 方法。
                 .findFirst().ifPresent(method -> {
