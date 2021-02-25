@@ -1,8 +1,13 @@
 package org.bytedancer.crayzer.design_mode_pattern.creational.builder;
 
 
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * @author yizhe.chen
+ */
+@Data
 public class ResourcePoolConfig {
     private String name;
     private int maxTotal;
@@ -15,7 +20,6 @@ public class ResourcePoolConfig {
         this.maxIdle = builder.maxIdle;
         this.minIdle = builder.minIdle;
     }
-    //...省略getter方法...
 
     //我们将Builder类设计成了ResourcePoolConfig的内部类。
     //我们也可以将Builder类设计成独立的非内部类ResourcePoolConfigBuilder。
@@ -80,10 +84,10 @@ public class ResourcePoolConfig {
     public static void main(String[] args) {
         // 这段代码会抛出IllegalArgumentException，因为minIdle>maxIdle
         ResourcePoolConfig config = new ResourcePoolConfig.Builder()
-                .setName("dbconnectionpool")
+                .setName("disconnection")
                 .setMaxTotal(16)
                 .setMaxIdle(13)
-                .setMinIdle(12)
+                .setMinIdle(14)
                 .build();
         System.out.println(config);
     }
