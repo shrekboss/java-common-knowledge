@@ -57,11 +57,3 @@ user表共有8条数据，有4页数据，但是实际查询过程中第一页�
 所以上面的情况下可以在SQL再添加个排序字段，比如fundflow的id字段，这样分页的问题就解决了。修改后的SQL可以像下面这样：SELECT * FROM user ORDER BY createtime,id LIMIT 6,2;
 
 再次测试问题解决！！
-
-作者：丘八老爷
-blog.csdn.net/qiubabin/article/details/70135556
-阅读原文
-阅读 95
-赞
-在看
-写下你的留言
