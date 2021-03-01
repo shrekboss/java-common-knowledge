@@ -11,9 +11,6 @@
 
     <artifactId>databases</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>mysql</module>
-    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
