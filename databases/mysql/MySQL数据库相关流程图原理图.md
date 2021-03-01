@@ -3,15 +3,15 @@
 ### 1. MySQL 主从复制原理图
 > - 主数据库有个 bin-log 二进制文件，记录了所有的增删改 SQL 语句(binlog 线程)；
 > - 从数据库把主数据库的 bin-log 文件的 SQL 语句复制过来(I/O 线程)；
-> - 从数据库的 relay-log 重做日志文件中在执行一次这些 SQL 语句(SQL 执行线程)
+> - 从数据库的 relay-log 重做日志文件中再执行一次这些 SQL 语句(SQL 执行线程)
 
 ![img.png](MySQL数据库相关流程图原理图/img.png)
 - 步骤一：主库的更新事件（update、insert、delete）被写到 binlog；
 - 步骤二：从库发起连接，连接到主库；
-- 步骤三：此时主库创建一个 binlog dump thread，把 binlog 的内容发送到从库；
-- 步骤四：从库启动之后，创建一个 I/O 线程，读取主库传过来的 binlog 内容并写入到 relay log；
-- 步骤五：还会创建一个 SQL 线程，从 relay log 里面读取内容，从 Exec_Master_Log_Pos 位置开始执
-  行读取到的更新事件，将更新内容写入到 slave 的 DB。
+- 步骤三：此时主库创建一个 **binlog dump thread**，把 binlog 的内容发送到从库；
+- 步骤四：从库启动之后，创建一个 **I/O 线程**，读取主库传过来的 binlog 内容并写入到 **relay log**；
+- 步骤五：还会创建一个 **SQL 线程**，从 **relay log** 里面读取内容，从 **Exec_Master_Log_Pos** 
+  位置开始执行读取到的更新事件，将更新内容写入到 slave 的 DB。
 
 ### 2. MySQL 逻辑架构图
 > 构建出 MySQL 各组件之间如何协同工作的架构图，会有助于深入理解 MySQL 服务器
@@ -70,6 +70,7 @@
 
 #### 4.1 InnoDB 页结构单体图
 InnoDB 数据页由以下 7 部分组成，如图所示：
+
 ![img_3.png](MySQL数据库相关流程图原理图/img_3.png)
 
 其中 File Header、Page Header、File Trailer 的大小是固定的，分别为 38、56、8 字节，这些空间用来
@@ -77,22 +78,26 @@ InnoDB 数据页由以下 7 部分组成，如图所示：
 Page Directory 这些部分为实际的行记录存储空间，因此大小是动态的。
 
 大致描述一下这 7 个部分：
+
 ![img_4.png](MySQL数据库相关流程图原理图/img_4.png)
 
 #### 4.2 记录在页中的存储流程图
 > 每当我们插入一条记录，都会从 Free Space 部分，也就是尚未使用的存储空间中申请一个记录大小的
 > 空间划分到 User Records 部分，当 Free Space 部分的空间全部被 User Records 部分替代掉之后，也
 > 就意味着这个页使用完了，如果还有新的记录插入的话，就需要去申请新的页了，这个过程的图示如下：
+
 ![img_5.png](MySQL数据库相关流程图原理图/img_5.png)
 
 #### 4.3 不同Innodb页构成的数据结构图
 > 一张表中可以有成千上万条记录，一个页只有 16KB，所以可能需要好多页来存放数据。不同页其实构成
 > 了一条双向链表，File Header 是 InnoDB 页的第一部分，它的 FIL_PAGE_PREV 和 FIL_PAGE_NEXT 
 > 就分别代表本页的上一个和下一个页的页号，即链表的上一个以及下一个节点指针。
+
 ![img_6.png](MySQL数据库相关流程图原理图/img_6.png)
 
 ### 5. Innodb索引结构图
 我们先看一份数据表样本，假设 Col1 是主键，如下：
+
 ![img_7.png](MySQL数据库相关流程图原理图/img_7.png)
 
 #### 5.1 B+ 树聚集索引结构图
@@ -102,6 +107,7 @@ Page Directory 这些部分为实际的行记录存储空间，因此大小是�
 
 #### 5.2 非聚集索引结构图
 假设索引列为 Col3，索引结构图如下：
+
 ![img_9.png](MySQL数据库相关流程图原理图/img_9.png)
 - 非聚集索引就是以非主键创建的索引；
 - **非聚集索引在叶子节点存储的是主键和索引列；**
