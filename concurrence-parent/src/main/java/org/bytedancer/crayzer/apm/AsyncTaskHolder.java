@@ -4,7 +4,8 @@ import lombok.Data;
 
 /**
  * 主子线程间传递
- **/
+ *
+ * @author yizhe.chen*/
 @Data
 public class AsyncTaskHolder {
 

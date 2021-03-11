@@ -36,7 +36,7 @@ public class LinkedListApplication {
         System.out.println(stopWatch2.prettyPrint());
     }
 
-    // //LinkedList访问
+    // LinkedList访问
     private static void linkedListGet(int elementCount, int loopCount) {
         List<Integer> list = IntStream.rangeClosed(1, elementCount).boxed().collect(Collectors.toCollection(LinkedList::new));
         IntStream.rangeClosed(1, loopCount).forEach(i -> list.get(ThreadLocalRandom.current().nextInt(elementCount)));

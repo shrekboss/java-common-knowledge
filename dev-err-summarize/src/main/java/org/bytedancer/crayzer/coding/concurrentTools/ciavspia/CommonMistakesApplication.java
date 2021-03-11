@@ -3,16 +3,22 @@ package org.bytedancer.crayzer.coding.concurrentTools.ciavspia;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author yizhe.chen
+ */
 @Slf4j
 public class CommonMistakesApplication {
 
     public static void main(String[] args) {
-        // test(new HashMap<>());
+        System.out.println("HashMap test: ");
+        test(new HashMap<>());
+        System.out.println("ConcurrentHashMap test: ");
         test(new ConcurrentHashMap<>());
     }
 
@@ -23,9 +29,14 @@ public class CommonMistakesApplication {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        // 当Key不存在的时候，putIfAbsent允许put null进去，而computeIfAbsent不能，之
-        // 后进行containsKey查询是有区别的（当然了，此条针对HashMap，ConcurrentHashMap
-        // 不允许put null value进去）
+        /*
+         * <p>
+         *     当Key不存在的时候，putIfAbsent允许put null进去，而computeIfAbsent不能，之后进行
+         *     containsKey 查询是有区别的
+         *
+         *     此条针对HashMap，ConcurrentHashMap 不允许put null value进去
+         * </p>
+         */
         log.info("test containsKey after putIfAbsent : {}", map.containsKey("test1"));
         log.info("computeIfAbsent null value : {}", map.computeIfAbsent("test2", k -> null));
         log.info("test containsKey after computeIfAbsent : {}", map.containsKey("test2"));
@@ -37,7 +48,7 @@ public class CommonMistakesApplication {
         // 取这个昂贵的Value上（这个点特别注意）
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("putIfAbsent expensive value");
-        log.info("putIfAbsent expensive value : {}", map.putIfAbsent("test4", getValue()));
+        log.info("putIfAbsent expensive value : {}", map.putIfAbsent("test3", getValue()));
         stopWatch.stop();
         stopWatch.start("computeIfAbsent expensive value");
         log.info("computeIfAbsent expensive value : {}", map.computeIfAbsent("test4", k -> getValue()));

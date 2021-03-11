@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.arithmetic.generatorid.snowflake;
+package org.bytedancer.crayzer.function.snowflake;
 
 import java.sql.Timestamp;
 import java.util.concurrent.Executors;
@@ -61,7 +61,6 @@ public class SystemClock {
     }
 
     private static class InstanceHolder {
-
         public static final SystemClock INSTANCE = new SystemClock(1);
     }
 }

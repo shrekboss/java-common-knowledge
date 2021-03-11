@@ -22,6 +22,8 @@
         <module>databases</module>
         <module>projects</module>
         <module>arithmetic</module>
+        <module>java-feature</module>
+        <module>small-function</module>
     </modules>
 
     <properties>

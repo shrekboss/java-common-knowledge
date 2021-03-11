@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-//简化的线程池，仅用来说明工作原理
+/**
+ * @author yizhe.chen
+ */ //简化的线程池，仅用来说明工作原理
 public class MyThreadPool {
 
     //利用阻塞队列实现生产者-消费者模式

@@ -8,6 +8,9 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * @author yizhe.chen
+ */
 @Slf4j
 public class CommonMistakesApplication {
 

@@ -1,4 +1,4 @@
-package org.bytedancer.crayzer.arithmetic.generatorid.snowflake;
+package org.bytedancer.crayzer.function.snowflake;
 
 /**
  * @author yizhe.chen

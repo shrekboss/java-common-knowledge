@@ -7,10 +7,10 @@
 因为共享了数组，相互修改产生 Bug。**)
 
 ### 使用List.subList进行切片操作居然会导致OOM：sublist
-//方式一：
-`List<Integer> subList = new ArrayList<>(list.subList(1, 4));`
-//方式二：
-`List<Integer> subList = list.stream().skip(1).limit(3).collect(Collectors.toList());`
+- 方式一：
+    - `List<Integer> subList = new ArrayList<>(list.subList(1, 4));`
+- 方式二：
+    - `List<Integer> subList = list.stream().skip(1).limit(3).collect(Collectors.toList());`
 
 ```java
 public class ArrayList<E> extends AbstractList<E>
