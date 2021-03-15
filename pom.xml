@@ -24,6 +24,7 @@
         <module>arithmetic</module>
         <module>java-feature</module>
         <module>small-function</module>
+        <module>maven-archetype-springboot</module>
     </modules>
 
     <properties>

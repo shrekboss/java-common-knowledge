@@ -1,0 +1,15 @@
+<!--需要输入的属性-->
+<requiredProperties>
+    <requiredProperty key="groupId">
+        <!--默认的groupId-->
+        <defaultValue>com.github.bjlhx15.test</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="artifactId">
+        <!--默认的artifactId-->
+        <defaultValue>demo</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="package">
+        <!--默认的包名和groupId一样-->
+        <defaultValue>${groupId}</defaultValue>
+    </requiredProperty>
+</requiredProperties>
