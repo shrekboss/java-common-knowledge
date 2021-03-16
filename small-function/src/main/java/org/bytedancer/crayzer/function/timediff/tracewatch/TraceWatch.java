@@ -1,6 +1,5 @@
 package org.bytedancer.crayzer.function.timediff.tracewatch;
 
-import com.sun.istack.internal.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bytedancer.crayzer.function.timediff.TimeUtils;
@@ -15,11 +14,14 @@ import java.util.Map;
  */
 public class TraceWatch {
 
-    /** Start time of the current task. */
+    /**
+     * Start time of the current task.
+     */
     private long startMs;
 
-    /** Name of the current task. */
-    @Nullable
+    /**
+     * Name of the current task.
+     */
     private String currentTaskName;
 
     @Getter
@@ -56,8 +58,9 @@ public class TraceWatch {
 
     /**
      * 直接记录指标数据，不局限于时间差类型
-     *  @param taskName 指标名
-     * @param data 指标数据
+     *
+     * @param taskName 指标名
+     * @param data     指标数据
      */
     public void record(String taskName, Object data) {
         TaskInfo info = new TaskInfo(taskName, data);

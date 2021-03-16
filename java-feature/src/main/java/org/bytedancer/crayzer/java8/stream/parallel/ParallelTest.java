@@ -1,5 +1,6 @@
 package org.bytedancer.crayzer.java8.stream.parallel;
 
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +11,10 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
-@Slf4j
+/**
+ * @author yizhe.chen
+ */
+@Log
 public class ParallelTest {
 
     @Test
@@ -20,6 +24,8 @@ public class ParallelTest {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         });
     }
@@ -38,7 +44,7 @@ public class ParallelTest {
         Assert.assertEquals(taskCount, threadpool(taskCount, threadCount));
         stopWatch.stop();
 
-        //试试把这段放到forkjoin下面？
+        // 试试把这段放到forkjoin下面？
         stopWatch.start("stream");
         Assert.assertEquals(taskCount, stream(taskCount, threadCount));
         stopWatch.stop();

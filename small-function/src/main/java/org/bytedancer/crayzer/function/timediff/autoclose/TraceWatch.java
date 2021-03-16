@@ -1,6 +1,5 @@
 package org.bytedancer.crayzer.function.timediff.autoclose;
 
-import com.sun.istack.internal.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bytedancer.crayzer.function.timediff.TimeUtils;
@@ -19,7 +18,6 @@ public class TraceWatch implements AutoCloseable{
     private long startMs;
 
     /** Name of the current task. */
-    @Nullable
     private String currentTaskName;
 
     @Getter

@@ -16,15 +16,24 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <!--    并发模块   -->
         <module>concurrence-parent</module>
+        <!--    设计模式模块   -->
         <module>design-parent</module>
+        <!--    开发中常见问题集模块   -->
         <module>dev-err-summarize</module>
+        <!--    数据库相关资料模块   -->
         <module>databases</module>
-        <module>projects</module>
+        <!--    微工程模块   -->
+        <module>micro-project</module>
+        <!--    算法模块   -->
         <module>arithmetic</module>
+        <!--    java 语言特性模块    -->
         <module>java-feature</module>
+        <!--    小功能实现方案思考模块    -->
         <module>small-function</module>
-        <module>maven-archetype-springboot</module>
+        <!--    自定义脚骨架模块    -->
+        <module>archetype-parent</module>
     </modules>
 
     <properties>

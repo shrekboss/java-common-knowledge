@@ -10,7 +10,8 @@ import java.util.function.Supplier;
  */
 public class TraceHolder {
 
-    private TraceHolder() {}
+    private TraceHolder() {
+    }
 
     /**
      * 有返回值调用

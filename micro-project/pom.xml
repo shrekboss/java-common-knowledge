@@ -9,12 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>maven-archetype-springboot</artifactId>
-    <version>1.0.0</version>
+    <artifactId>projects</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>MyLog</module>
+        <module>InitProject</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
