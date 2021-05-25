@@ -3,14 +3,15 @@ package org.bytedancer.crayzer.jdkconcurrentutil.stamplock;
 import java.util.concurrent.locks.StampedLock;
 
 /**
- * @author yizhe.chen
+ * {@link StampedLock}
+ *
+ * 获取/释放悲观读锁示意代码
  */
-public class StampLock {
+public class StampLockForPessimistic {
     public static void main(String[] args) {
 
         final StampedLock sl = new StampedLock();
 
-        // 获取/释放悲观读锁示意代码
         long stamp = sl.readLock();
         try {
             //省略业务相关代码

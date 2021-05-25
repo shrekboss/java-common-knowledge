@@ -5,7 +5,7 @@ import java.util.concurrent.locks.StampedLock;
 /**
  * @author yizhe.chen
  */
-public class StampedLockTemplate {
+public class StampedLockForOptimistic {
 
     final StampedLock sl = new StampedLock();
 
