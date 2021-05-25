@@ -1,18 +1,22 @@
 package org.bytedancer.crayzer.jdkconcurrentutil.condition;
 
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 编写代码，使用3个线程，1个线程打印X，一个线程打印Y，一个线程打印Z，同时执行连续打印10次"XYZ"
+ */
 public class PrintStr implements Runnable {
-    private static final int COUNT = 10;
-    private final ReentrantLock reentrantLock;
-    private final Condition thisCondition;
-    private final Condition nextCondition;
-    private final String printContext;
 
-    public PrintStr(ReentrantLock reentrantLock, Condition thisCondition,
-                    Condition nextCondition, String printContext) {
-        this.reentrantLock = new ReentrantLock();
+    private final static int COUNT = 10;
+    private Lock lock;
+    private Condition thisCondition;
+    private Condition nextCondition;
+    private String printContext;
+
+    public PrintStr(Lock lock, Condition thisCondition, Condition nextCondition, String printContext) {
+        this.lock = lock;
         this.thisCondition = thisCondition;
         this.nextCondition = nextCondition;
         this.printContext = printContext;
@@ -20,33 +24,32 @@ public class PrintStr implements Runnable {
 
     @Override
     public void run() {
-        reentrantLock.lock();
+        lock.lock();
+
         try {
             for (int i = 0; i < COUNT; i++) {
                 System.out.print(printContext);
-                nextCondition.signal();
+                this.nextCondition.signal();
                 if (i < COUNT - 1) {
-                    try {
-                        thisCondition.await();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    this.thisCondition.await();
                 }
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
-            reentrantLock.unlock();
+            lock.unlock();
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ReentrantLock lock = new ReentrantLock();
-        Condition conditionX = lock.newCondition();
-        Condition conditionY = lock.newCondition();
-        Condition conditionZ = lock.newCondition();
-        Runnable target;
-        Thread printX = new Thread(new PrintStr(lock, conditionX, conditionY, "X"));
-        Thread printY = new Thread(new PrintStr(lock, conditionY, conditionZ, "Y"));
-        Thread printZ = new Thread(new PrintStr(lock, conditionZ, conditionX, "Z"));
+        Lock lock = new ReentrantLock();
+        Condition printXCondition = lock.newCondition();
+        Condition printYCondition = lock.newCondition();
+        Condition printZCondition = lock.newCondition();
+
+        Thread printX = new Thread(new PrintStr(lock, printXCondition, printYCondition, "X"));
+        Thread printY = new Thread(new PrintStr(lock, printYCondition, printZCondition, "Y"));
+        Thread printZ = new Thread(new PrintStr(lock, printZCondition, printXCondition, "Z"));
 
         printX.start();
         Thread.sleep(100);

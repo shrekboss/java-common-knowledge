@@ -24,12 +24,12 @@ public class MapDemo extends HashMap<String, String>{
         /* 树化 */
         // map.treeifyBin(null, 0);
 
+        /** 数组长度为 素数 和 合数 的区别 */
         System.out.println(1 % 4);
         System.out.println(3 % 4);
         System.out.println(5 % 4);
         System.out.println(7 % 4);
-
-        System.out.println("=====");
+        System.out.println("=====华丽的分割线=====");
         System.out.println(1 % 5);
         System.out.println(3 % 5);
         System.out.println(5 % 5);
