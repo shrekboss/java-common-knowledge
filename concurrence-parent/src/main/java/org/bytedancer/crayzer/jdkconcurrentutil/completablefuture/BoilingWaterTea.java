@@ -11,7 +11,7 @@ public class BoilingWaterTea {
             sleep(1, TimeUnit.SECONDS);
 
             System.out.println("T1: 烧开水");
-            sleep(15, TimeUnit.SECONDS);
+            sleep(5, TimeUnit.SECONDS);
         });
         CompletableFuture<String> f2 = CompletableFuture.supplyAsync(() -> {
             System.out.println("T2: 洗茶壶");
