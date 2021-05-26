@@ -45,9 +45,7 @@ public class BoundedQueue<T> {
                 notEmpty.await();
             }
             Object x = items[removeIndex];
-            if (++removeIndex == items.length) {
-                removeIndex = 0;
-            }
+            if (++removeIndex == items.length) removeIndex = 0;
             notFull.signal();
             return (T) x;
         } finally {

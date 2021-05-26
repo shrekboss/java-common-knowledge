@@ -4,6 +4,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 读写锁 锁降级 ①
+ */
 public class CachedData {
     private Object data;
     private volatile boolean cacheValid;
@@ -25,7 +28,7 @@ public class CachedData {
                     cacheValid = true;
                 }
                 // 释放写锁前，降级读锁
-                // 降级是可以的
+                // 降级是可以的 ①
                 r.lock();
             } finally {
                 w.unlock();

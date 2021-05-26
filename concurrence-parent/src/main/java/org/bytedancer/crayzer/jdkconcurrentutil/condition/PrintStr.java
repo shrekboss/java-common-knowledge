@@ -29,7 +29,8 @@ public class PrintStr implements Runnable {
         try {
             for (int i = 0; i < COUNT; i++) {
                 System.out.print(printContext);
-                this.nextCondition.signal();
+                nextCondition.signal();
+
                 if (i < COUNT - 1) {
                     this.thisCondition.await();
                 }

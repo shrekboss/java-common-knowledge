@@ -1,6 +1,10 @@
 package org.bytedancer.crayzer.jdkconcurrentutil.stamplock;
 
 
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.StampedLock;
 
 /**
@@ -34,13 +38,32 @@ class Point {
 
     public static void main(String[] args) {
         Point point = new Point();
-        new Thread(() -> {
+        Executor executor = Executors.newFixedThreadPool(2);
+//        CountDownLatch latch = new CountDownLatch(2);
+        final CyclicBarrier barrier = new CyclicBarrier(2);
+        executor.execute(()-> {
             double v = point.distanceFromOrigin(3, 4);
             System.out.println(v);
-        }).start();
-        new Thread(() -> {
+            try {
+                barrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        });
+        executor.execute(()-> {
             double v = point.distanceFromOrigin(6, 8);
             System.out.println(v);
-        }).start();
+            try {
+                barrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        });
+        // 等待两个查询操作结束
+//        latch.await();
     }
 }

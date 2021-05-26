@@ -5,6 +5,9 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
+/**
+ * 基于 {@link AbstractQueuedSynchronizer} 实现共享锁(每次最多能获取两个线程执行)
+ */
 public class TwinsLock implements Lock {
 
     private final Sync sync = new Sync(2);
@@ -53,6 +56,19 @@ public class TwinsLock implements Lock {
     public void unlock() {
         sync.releaseShared(1);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void lockInterruptibly() throws InterruptedException {}

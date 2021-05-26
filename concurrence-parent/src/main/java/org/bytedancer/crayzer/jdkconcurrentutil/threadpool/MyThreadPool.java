@@ -6,8 +6,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * @author yizhe.chen
- */ //简化的线程池，仅用来说明工作原理
+ * 简化的线程池，仅用来说明工作原理
+ */
 public class MyThreadPool {
 
     //利用阻塞队列实现生产者-消费者模式
@@ -49,9 +49,6 @@ public class MyThreadPool {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        /**
-         * 下面是使用示例
-         **/
         // 创建有界阻塞队列
         BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(2);
         // 创建线程池

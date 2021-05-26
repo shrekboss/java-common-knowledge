@@ -5,12 +5,15 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
+/**
+ * 基于 AQS 实现排它锁实例
+ */
 public class Mute implements Lock {
 
     /**
      * 静态内部类，自定义同步器
      */
-    private static class Sync extends AbstractQueuedSynchronizer {
+    private final static class Sync extends AbstractQueuedSynchronizer {
 
         // 当状态为 0 的时候获取锁
         @Override
@@ -55,11 +58,6 @@ public class Mute implements Lock {
     }
 
     @Override
-    public void unlock() {
-        SYNC.release(1);
-    }
-
-    @Override
     public boolean tryLock(long timeout, TimeUnit unit) throws InterruptedException {
         return SYNC.tryAcquireNanos(1, unit.toNanos(timeout));
     }
@@ -67,6 +65,11 @@ public class Mute implements Lock {
     @Override
     public void lockInterruptibly() throws InterruptedException {
         SYNC.acquireInterruptibly(1);
+    }
+
+    @Override
+    public void unlock() {
+        SYNC.release(1);
     }
 
     @Override

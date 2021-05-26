@@ -1,21 +1,19 @@
-package org.bytedancer.crayzer.jdkconcurrentutil.semaphore.reconciliationApp;
+package org.bytedancer.crayzer.jdkconcurrentutil;
 
-public class ReconciliationSysV1 {
+public class ReconciliationSysForThread {
 
     private POrder pOrder;
     private DOrder dOrder;
 
-    public void reconcilation() {
+    public void unreconciled() {
 
-        while (existReconciliationOrder()) {
-            Thread t1 = new Thread(() -> {
-                pOrder = getPOrders();
-            });
+        // 存在未对账订单
+        while (existUnreconciledOrder()) {
+            // 查询派送单
+            Thread t1 = new Thread(() -> pOrder = getPOrders());
             t1.start();
-
-            Thread t2 = new Thread(() -> {
-                dOrder = getDOrders();
-            });
+            // 查询派送单
+            Thread t2 = new Thread(() -> dOrder = getDOrders());
             t2.start();
             try {
                 t1.join();
@@ -24,10 +22,13 @@ public class ReconciliationSysV1 {
                 e.printStackTrace();
             }
 
+            // 执行对账操作
             Object object = check(pOrder, dOrder);
+            // 差异写入差异库
             save(object);
         }
     }
+
 
     private POrder getPOrders() {
         return null;
@@ -45,7 +46,7 @@ public class ReconciliationSysV1 {
 
     }
 
-    private boolean existReconciliationOrder() {
+    private boolean existUnreconciledOrder() {
         return true;
     }
 }

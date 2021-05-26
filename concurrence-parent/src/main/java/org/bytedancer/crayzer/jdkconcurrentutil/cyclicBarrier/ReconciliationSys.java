@@ -1,4 +1,7 @@
-package org.bytedancer.crayzer.jdkconcurrentutil.semaphore.reconciliationApp;
+package org.bytedancer.crayzer.jdkconcurrentutil.cyclicBarrier;
+
+import org.bytedancer.crayzer.jdkconcurrentutil.DOrder;
+import org.bytedancer.crayzer.jdkconcurrentutil.POrder;
 
 import java.util.Vector;
 import java.util.concurrent.BrokenBarrierException;
@@ -6,7 +9,7 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class ReconciliationSysV3 {
+public class ReconciliationSys {
 
     // 订单队列
     private Vector<POrder> pos;
@@ -44,7 +47,7 @@ public class ReconciliationSysV3 {
     void checkAll() {
         // 循环查询订单库
         Thread T1 = new Thread(() -> {
-            while (existReconciliationOrder()) {
+            while (existUnreconciledOrder()) {
                 // 查询订单库
                 pos.add(getPOrders());
                 // 等待
@@ -60,7 +63,7 @@ public class ReconciliationSysV3 {
         T1.start();
         // 循环查询运单库
         Thread T2 = new Thread(() -> {
-            while (existReconciliationOrder()) {
+            while (existUnreconciledOrder()) {
                 // 查询运单库
                 dos.add(getDOrders());
                 // 等待
@@ -76,6 +79,22 @@ public class ReconciliationSysV3 {
         T2.start();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void save(Object diff) {
     }
 
@@ -83,7 +102,7 @@ public class ReconciliationSysV3 {
         return null;
     }
 
-    private boolean existReconciliationOrder() {
+    private boolean existUnreconciledOrder() {
         return true;
     }
 
