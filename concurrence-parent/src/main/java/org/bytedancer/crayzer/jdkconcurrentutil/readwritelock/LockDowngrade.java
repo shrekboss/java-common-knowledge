@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * 读写锁 锁降级 ①
  */
-public class CachedData {
+public class LockDowngrade {
     private Object data;
     private volatile boolean cacheValid;
     private final ReadWriteLock rwl = new ReentrantReadWriteLock();
@@ -24,7 +24,7 @@ public class CachedData {
             w.lock();
             try {
                 if (!cacheValid) {
-                    // data == ..... todo
+                    // data == ..... 重新从数据源获取数据
                     cacheValid = true;
                 }
                 // 释放写锁前，降级读锁

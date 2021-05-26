@@ -6,6 +6,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 高并发的场景下，有可能会有多线程竞争写锁
+ * {@see ⑥}
+ */
 public class ConcurrentCache<K, V> {
     private final Map<K, V> m = new HashMap<>();
     private final ReadWriteLock rwl = new ReentrantReadWriteLock();
