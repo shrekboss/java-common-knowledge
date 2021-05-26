@@ -6,9 +6,9 @@ import java.util.concurrent.locks.StampedLock;
  * {@link StampedLock} Java 官方模板
  */
 public class StampedLockTemplate {
+    final StampedLock sl = new StampedLock();
 
     public void methodForRead() {
-        final StampedLock sl = new StampedLock();
 
         // 乐观读
         long stamp = sl.tryOptimisticRead();
@@ -28,6 +28,17 @@ public class StampedLockTemplate {
         }
         // 使用方法局部变量执行业务操作
         // ......
+    }
+
+    public void methodForWrite() {
+
+        long stamp = sl.writeLock();
+        try {
+            // 写共享变量
+            // ......
+        } finally {
+            sl.unlockWrite(stamp);
+        }
     }
 }
 
