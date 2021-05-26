@@ -35,7 +35,7 @@ public class BoilingWaterTea {
             System.out.println("T1:洗水壶...");
             TimeUnit.SECONDS.sleep(1);
             System.out.println("T1:烧开水...");
-            TimeUnit.SECONDS.sleep(15);
+            TimeUnit.SECONDS.sleep(5);
             // 获取T2线程的茶叶
             String tf = ft2.get();
             System.out.println("T1:拿到茶叶:" + tf);
